@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">GE Monogram</string>
+
+    <string name="cleaning_firstbtn">DISHWASHERS</string>
+    <string name="cleaning_secondbtn">DISHWASHERS &amp; COMPACTORS</string>
+    <string name="cleaning_thirdbtn">ENERGY STAR DISHWASHERS</string>
+
+    <string name="cooking_firstbtn">RANGES</string>
+    <string name="cooking_secondbtn">RANGETOPS  &amp; COOKTOPS</string>
+    <string name="cooking_thirdbtn">WALLOVENS</string>
+
+    <string name="refrigeration_firstbtn">FULL SIZE</string>
+    <string name="refrigeration_secondbtn">BUILT IN</string>
+    <string name="refrigeration_thirdbtn">FREE   STANDING</string>
 </resources>

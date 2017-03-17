@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.virtusventures.geapp.activity.RefrigerationActivity">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/refridgeration_background"
+        android:scaleType="fitXY" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:weightSum="4">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.35"
+            android:orientation="vertical"
+            android:weightSum="3">
+
+            <Button
+                android:id="@+id/refrigerationfirst_btn"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:text="@string/refrigeration_firstbtn"
+                android:textSize="@dimen/textsize_30"
+                android:onClick="onFirstClick"/>
+
+            <Button
+                android:id="@+id/refrigerationsecond_btn"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:text="@string/refrigeration_secondbtn"
+                android:textSize="@dimen/textsize_30"
+                android:onClick="onSecondClick"/>
+
+            <Button
+                android:id="@+id/refrigerationthird_btn"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:text="@string/refrigeration_thirdbtn"
+                android:textSize="@dimen/textsize_30"
+                android:onClick="onThirdClick"/>
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <Button
+        android:layout_width="140dp"
+        android:layout_height="38dp"
+        android:text="BACK"
+        android:textSize="15sp"
+        android:background="@drawable/border_button"
+        android:textColor="@android:color/darker_gray"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="30dp"
+        android:layout_marginTop="30dp"
+        android:onClick="onBack"/>
+
+</RelativeLayout>

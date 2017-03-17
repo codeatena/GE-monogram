@@ -1,9 +1,10 @@
 package com.virtusventures.geapp.activity;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
 import android.widget.ImageButton;
 
 import com.google.gson.JsonObject;
@@ -18,7 +19,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import rx.Subscription;
 
-public class LandingActivity extends AppCompatActivity {
+public class LandingActivity extends BaseActivity{
 
     Subscription subscription;
 
@@ -40,7 +41,11 @@ public class LandingActivity extends AppCompatActivity {
         setContentView(R.layout.activity_landing);
 
         ButterKnife.bind(this);
+        loadAPI();
+    }
 
+    private void loadAPI()
+    {
         final ProgressDialog pd = new ProgressDialog(this);
         pd.setMessage("Loading ...");
         pd.show();
@@ -83,7 +88,6 @@ public class LandingActivity extends AppCompatActivity {
 
             }
         });
-
     }
 
     @Override
@@ -91,5 +95,23 @@ public class LandingActivity extends AppCompatActivity {
 
         if (subscription != null) subscription.unsubscribe();
         super.onDestroy();
+    }
+
+    public void onCooking(View view)
+    {
+        Intent intent =  new Intent(this , CookingActivity.class);
+        startActivity(intent);
+    }
+
+    public void onCleaning(View view)
+    {
+        Intent intent =  new Intent(this , CleaningActivity.class);
+        startActivity(intent);
+    }
+
+    public void onRefrigeration(View view)
+    {
+        Intent intent =  new Intent(this , RefrigerationActivity.class);
+        startActivity(intent);
     }
 }
