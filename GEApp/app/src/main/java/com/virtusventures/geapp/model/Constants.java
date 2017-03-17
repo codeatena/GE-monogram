@@ -6,7 +6,7 @@ package com.virtusventures.geapp.model;
 
 public class Constants {
 
-    public static final String API_DOMAIN  = "http://ec2-54-190-191-74.us-west-2.compute.amazonaws.com:8080/monogramapi-1.0-SNAPSHOT/api/meta.get?username=matt&secretkey=29245eb0655a62f37045e528da2f63fb&apiname=%s";
+    public static final String API_DOMAIN  = "http://ec2-54-190-191-74.us-west-2.compute.amazonaws.com:8080/monogramapi-1.0-SNAPSHOT/api/";
 
     public static final String advantium = "advantium";
     public static final String bottomfreezer = "bottomfreezer";
