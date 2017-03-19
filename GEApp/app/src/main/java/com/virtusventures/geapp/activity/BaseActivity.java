@@ -19,6 +19,7 @@ public class BaseActivity extends AppCompatActivity {
 
         View decorView = getWindow().getDecorView();
         decorView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_FULLSCREEN);
+
     }
 
     public void stopResetTimer() {

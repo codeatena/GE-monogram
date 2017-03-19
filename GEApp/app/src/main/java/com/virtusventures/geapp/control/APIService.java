@@ -58,7 +58,8 @@ public class APIService {
 
         final Observable<JsonObject> call = apiService.getAPI(data);
         Subscription subscription = call
-                .subscribeOn(Schedulers.io()) // optional if you do not wish to override the default behavior
+                .subscribeOn(Schedulers.io())
+                .unsubscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread()).subscribe(new Subscriber<JsonObject>() {
                     @Override
                     public void onCompleted() {

@@ -41,4 +41,7 @@ public class Constants {
     public static final String videogallery = "videogallery";
     public static final String wallovens = "wallovens";
 
+    //
+    public static final String MEDIA_URL   = "mediaurl";
+
 }

@@ -19,11 +19,11 @@ public class LoopingActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_looping);
 
         View decorView = getWindow().getDecorView();
         decorView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_FULLSCREEN);
 
+        setContentView(R.layout.activity_looping);
         tvBeginButton = (TextView) findViewById(R.id.begin_button_textView);
         videoView = (VideoView) findViewById(R.id.videoView);
 
