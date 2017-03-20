@@ -50,7 +50,7 @@ public class MediaAdapter extends RecyclerView.Adapter{
         final MediaModel item = imageModels.get(position);
 
         Picasso.with(mContext)
-                .load(item.urlPath)
+                .load(item.photoPath)
                 .resize(1000, 1000)
                 .onlyScaleDown()
                 .centerInside()
@@ -65,7 +65,7 @@ public class MediaAdapter extends RecyclerView.Adapter{
 
                     @Override
                     public void onError() {
-                        Log.d("error", item.urlPath);
+                        Log.d("error", item.photoPath);
                         if (!item.bIsPhoto)
                             vh.playImageView.setVisibility(View.VISIBLE);
                         vh.progressBar.setVisibility(View.GONE);
@@ -83,9 +83,25 @@ public class MediaAdapter extends RecyclerView.Adapter{
         imageModels.add(imageModel);
     }
 
+    public int getMedia(String name)
+    {
+        for (int i = 0 ; i < imageModels.size() ; i ++)
+        {
+            MediaModel model = imageModels.get(i);
+            if (model.photoPath.contains(name)) return i;
+        }
+
+        return -1;
+    }
+
+    public MediaModel getMedia(int i)
+    {
+        return imageModels.get(i);
+    }
+
     public String getUrl(int position)
     {
-        return imageModels.get(position).urlPath;
+        return imageModels.get(position).photoPath;
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
@@ -99,28 +115,4 @@ public class MediaAdapter extends RecyclerView.Adapter{
         }
     }
 
-    /* Get thumb from remote url
-    public static Bitmap retriveVideoFrameFromVideo(String videoPath)
-    {
-        Bitmap bitmap = null;
-        MediaMetadataRetriever mediaMetadataRetriever = null;
-        try
-        {
-            mediaMetadataRetriever = new MediaMetadataRetriever();
-            mediaMetadataRetriever.setDataSource(videoPath);
-            bitmap = mediaMetadataRetriever.getFrameAtTime();
-        }
-        catch (Exception e)
-        {
-            e.printStackTrace();
-        }
-        finally
-        {
-            if (mediaMetadataRetriever != null)
-            {
-                mediaMetadataRetriever.release();
-            }
-        }
-        return bitmap;
-    }*/
 }

@@ -100,21 +100,25 @@ public class MediaListActivity extends BaseActivity {
                     adapter.addMedia(model);
                 }
 
-                String videoPath = ParseJson.getPhotoPath(jsonObject);
+                String videoPath = ParseJson.getVideoPath(jsonObject);
                 if (jsonObject.get("api").getAsJsonObject().get("videos") instanceof JsonObject)
                 {
                     jsonArray = jsonObject.get("api").getAsJsonObject().get("videos").getAsJsonObject().get("video").getAsJsonArray();
                     for (int i = 0 ; i < jsonArray.size() ; i ++)
                     {
                         String encodeStr = Uri.encode(jsonArray.get(i).getAsString());
-                        Log.d(TAG ,videoPath + encodeStr);
-                        //MediaModel model = new MediaModel(videoPath + encodeStr , true);
-                        //adapter.addMedia(model);
+                        String subStr = encodeStr.replaceAll(".mp4" ,"");
+                        int index = adapter.getMedia(subStr);
+                        if (index != -1)
+                        {
+                            MediaModel model = adapter.getMedia(index);
+                            model.bIsPhoto = false;
+                            model.videooPath =  videoPath + encodeStr;
+                        }
                     }
                 }
 
                 adapter.notifyDataSetChanged();
-
             }
 
             @Override

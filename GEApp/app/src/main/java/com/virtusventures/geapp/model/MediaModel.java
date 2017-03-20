@@ -6,12 +6,14 @@ package com.virtusventures.geapp.model;
 
 public class MediaModel {
 
-    public String urlPath;
+    public String photoPath;
+    public String videooPath;
+
     public Boolean bIsPhoto;
 
     public MediaModel(String path , Boolean IsPhoto)
     {
-        urlPath = path;
+        photoPath = path;
         bIsPhoto = IsPhoto;
     }
 }
