@@ -18,17 +18,8 @@
         tools:layout_editor_absoluteX="8dp" />
 
     <TextView
-        android:layout_width="0dp"
-        android:layout_height="343dp"
-        android:background="@android:color/transparent"
-        android:id="@+id/start_button"
-        tools:layout_editor_absoluteY="8dp"
-        tools:layout_editor_absoluteX="8dp" />
-
-    <TextView
-        android:layout_width="140dp"
-        android:layout_height="38dp"
-        android:text="touch to begin"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:id="@+id/begin_button_textView"
         android:textSize="15sp"
         android:background="@drawable/border_button"
@@ -37,6 +28,7 @@
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
         tools:layout_editor_absoluteY="0dp"
-        tools:layout_editor_absoluteX="0dp" />
+        tools:layout_editor_absoluteX="0dp"
+        />
 
 </RelativeLayout>

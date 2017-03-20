@@ -1,5 +1,6 @@
 package com.virtusventures.geapp.activity;
 
+import android.content.Intent;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
@@ -14,7 +15,6 @@ public class LoopingActivity extends AppCompatActivity {
 
     TextView tvBeginButton;
     VideoView videoView;
-    TextView startButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,19 +27,13 @@ public class LoopingActivity extends AppCompatActivity {
         tvBeginButton = (TextView) findViewById(R.id.begin_button_textView);
         videoView = (VideoView) findViewById(R.id.videoView);
 
-        startButton =  (TextView)findViewById(R.id.start_button);
-        startButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                finish();
-            }
-        });
-
         tvBeginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
+                Intent intent = new Intent(LoopingActivity.this, LandingActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                startActivity(intent);
 
                 finish();
             }

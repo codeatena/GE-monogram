@@ -1,6 +1,7 @@
 package com.virtusventures.geapp.activity;
 
 import android.os.Bundle;
+import android.view.View;
 
 import com.devbrackets.android.exomedia.ui.widget.EMVideoView;
 import com.github.chrisbanes.photoview.PhotoView;
@@ -86,5 +87,10 @@ public class DetailActivity extends BaseActivity {
             videoView.setVideoURI(Uri.parse(model.videooPath));
         }*/
 
+    }
+
+    public void onBack(View view){
+
+        finish();
     }
 }

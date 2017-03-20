@@ -64,8 +64,8 @@
                 android:scaleType="fitXY"
                 android:background="@null"
                 android:onClick="onSweetRewards"
-                android:layout_marginBottom="5dp"
-                android:layout_marginTop="5dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginLeft="30dp"
                 android:layout_marginRight="30dp"
                 />
@@ -78,8 +78,8 @@
                 android:scaleType="fitXY"
                 android:background="@null"
                 android:onClick="onExperienceMonogram"
-                android:layout_marginBottom="5dp"
-                android:layout_marginTop="5dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginLeft="30dp"
                 android:layout_marginRight="30dp"
                 />
@@ -92,8 +92,8 @@
                 android:scaleType="fitXY"
                 android:background="@null"
                 android:onClick="onInspiredKitchen"
-                android:layout_marginBottom="5dp"
-                android:layout_marginTop="5dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginLeft="30dp"
                 android:layout_marginRight="30dp"
                 />

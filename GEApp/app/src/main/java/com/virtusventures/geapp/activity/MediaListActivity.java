@@ -146,4 +146,9 @@ public class MediaListActivity extends BaseActivity {
             }
         });
     }
+
+    public void onBack(View view){
+
+        finish();
+    }
 }
