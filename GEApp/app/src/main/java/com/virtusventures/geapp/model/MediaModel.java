@@ -1,10 +1,12 @@
 package com.virtusventures.geapp.model;
 
+import java.io.Serializable;
+
 /**
  * Created by mac on 20/03/2017.
  */
 
-public class MediaModel {
+public class MediaModel implements Serializable{
 
     public String photoPath;
     public String videooPath;

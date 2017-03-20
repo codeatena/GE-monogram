@@ -52,7 +52,7 @@ public class MediaListActivity extends BaseActivity {
                         // do whatever
 
                         Intent intent = new Intent(MediaListActivity.this , DetailActivity.class);
-                        intent.putExtra(Constants.MEDIA_URL, adapter.getUrl(position));
+                        intent.putExtra(Constants.MEDIA_URL, adapter.getMedia(position));
                         startActivity(intent);
                     }
 
