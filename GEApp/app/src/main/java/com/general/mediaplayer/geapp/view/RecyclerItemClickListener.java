@@ -1,4 +1,4 @@
-package com.virtusventures.geapp.view;
+package com.general.mediaplayer.geapp.view;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;

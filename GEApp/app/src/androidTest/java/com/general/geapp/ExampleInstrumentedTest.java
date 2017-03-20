@@ -1,4 +1,4 @@
-package com.virtusventures.geapp;
+package com.general.geapp;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

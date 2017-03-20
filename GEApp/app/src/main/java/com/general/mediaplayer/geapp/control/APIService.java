@@ -1,10 +1,10 @@
-package com.virtusventures.geapp.control;
+package com.general.mediaplayer.geapp.control;
 
 import android.util.Log;
 
+import com.general.mediaplayer.geapp.model.Constants;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
-import com.virtusventures.geapp.model.Constants;
 
 import java.util.HashMap;
 import java.util.Map;

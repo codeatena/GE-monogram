@@ -1,4 +1,4 @@
-package com.virtusventures.geapp.activity;
+package com.general.mediaplayer.geapp.activity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -9,16 +9,16 @@ import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.util.Log;
 import android.view.View;
 
+import com.general.mediaplayer.geapp.R;
+import com.general.mediaplayer.geapp.adapter.MediaAdapter;
+import com.general.mediaplayer.geapp.control.APICallback;
+import com.general.mediaplayer.geapp.control.APIService;
+import com.general.mediaplayer.geapp.model.Constants;
+import com.general.mediaplayer.geapp.model.MediaModel;
+import com.general.mediaplayer.geapp.model.ParseJson;
+import com.general.mediaplayer.geapp.view.RecyclerItemClickListener;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
-import com.virtusventures.geapp.R;
-import com.virtusventures.geapp.adapter.MediaAdapter;
-import com.virtusventures.geapp.control.APICallback;
-import com.virtusventures.geapp.control.APIService;
-import com.virtusventures.geapp.model.Constants;
-import com.virtusventures.geapp.model.MediaModel;
-import com.virtusventures.geapp.model.ParseJson;
-import com.virtusventures.geapp.view.RecyclerItemClickListener;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

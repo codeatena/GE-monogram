@@ -1,11 +1,11 @@
-package com.virtusventures.geapp.activity;
+package com.general.mediaplayer.geapp.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 
-import com.virtusventures.geapp.R;
+import com.general.mediaplayer.geapp.R;
 
 public class SplashActivity extends AppCompatActivity {
 

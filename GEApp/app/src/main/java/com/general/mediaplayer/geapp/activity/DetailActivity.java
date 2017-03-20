@@ -1,15 +1,20 @@
-package com.virtusventures.geapp.activity;
+package com.general.mediaplayer.geapp.activity;
 
+import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
+import com.danikula.videocache.HttpProxyCacheServer;
+import com.devbrackets.android.exomedia.listener.OnPreparedListener;
 import com.devbrackets.android.exomedia.ui.widget.EMVideoView;
+import com.general.mediaplayer.geapp.GEApplication;
+import com.general.mediaplayer.geapp.R;
+import com.general.mediaplayer.geapp.model.Constants;
+import com.general.mediaplayer.geapp.model.MediaModel;
 import com.github.chrisbanes.photoview.PhotoView;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
-import com.virtusventures.geapp.R;
-import com.virtusventures.geapp.model.Constants;
-import com.virtusventures.geapp.model.MediaModel;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -33,24 +38,24 @@ public class DetailActivity extends BaseActivity {
         ButterKnife.bind(this);
 
         MediaModel model = (MediaModel)getIntent().getSerializableExtra(Constants.MEDIA_URL);
-        Picasso.with(this)
-                .load(model.photoPath)
-                .resize(1000, 1000)
-                .onlyScaleDown()
-                .centerInside()
-                .into(detailImageView, new Callback() {
-                    @Override
-                    public void onSuccess() {
+//        Picasso.with(this)
+//                .load(model.photoPath)
+//                .resize(1000, 1000)
+//                .onlyScaleDown()
+//                .centerInside()
+//                .into(detailImageView, new Callback() {
+//                    @Override
+//                    public void onSuccess() {
+//
+//                    }
+//
+//                    @Override
+//                    public void onError() {
+//
+//                    }
+//                });
 
-                    }
 
-                    @Override
-                    public void onError() {
-
-                    }
-                });
-
-        /*
         if (model.bIsPhoto)
         {
             Picasso.with(this)
@@ -73,8 +78,8 @@ public class DetailActivity extends BaseActivity {
         else
         {
             videoView.setVisibility(View.VISIBLE);
-            //HttpProxyCacheServer proxy = GEApplication.getProxy(this);
-            //String proxyUrl = proxy.getProxyUrl(model.videooPath);
+            HttpProxyCacheServer proxy = GEApplication.getProxy(this);
+            String proxyUrl = proxy.getProxyUrl(model.videooPath);
 
             Log.d("video path" ,model.videooPath);
             videoView.setOnPreparedListener(new OnPreparedListener() {
@@ -84,8 +89,10 @@ public class DetailActivity extends BaseActivity {
                     videoView.start();
                 }
             });
-            videoView.setVideoURI(Uri.parse(model.videooPath));
-        }*/
+            //videoView.setVideoURI(Uri.parse(model.videooPath));
+            videoView.setVideoURI(Uri.parse(proxyUrl));
+
+        }
 
     }
 

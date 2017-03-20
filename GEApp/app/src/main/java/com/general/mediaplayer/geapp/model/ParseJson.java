@@ -1,4 +1,4 @@
-package com.virtusventures.geapp.model;
+package com.general.mediaplayer.geapp.model;
 
 import com.google.gson.JsonObject;
 

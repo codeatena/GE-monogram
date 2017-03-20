@@ -1,4 +1,4 @@
-package com.virtusventures.geapp.adapter;
+package com.general.mediaplayer.geapp.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -10,10 +10,10 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 
+import com.general.mediaplayer.geapp.R;
+import com.general.mediaplayer.geapp.model.MediaModel;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
-import com.virtusventures.geapp.R;
-import com.virtusventures.geapp.model.MediaModel;
 
 import java.util.ArrayList;
 import java.util.List;

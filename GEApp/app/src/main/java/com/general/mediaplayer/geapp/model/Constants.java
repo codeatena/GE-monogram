@@ -1,4 +1,4 @@
-package com.virtusventures.geapp.model;
+package com.general.mediaplayer.geapp.model;
 
 /**
  * Created by mac on 15/03/2017.

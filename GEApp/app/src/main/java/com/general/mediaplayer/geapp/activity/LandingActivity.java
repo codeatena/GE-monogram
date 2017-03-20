@@ -1,4 +1,4 @@
-package com.virtusventures.geapp.activity;
+package com.general.mediaplayer.geapp.activity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -7,14 +7,14 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 
+import com.general.mediaplayer.geapp.R;
+import com.general.mediaplayer.geapp.control.APICallback;
+import com.general.mediaplayer.geapp.control.APIService;
+import com.general.mediaplayer.geapp.model.Constants;
+import com.general.mediaplayer.geapp.model.ParseJson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.squareup.picasso.Picasso;
-import com.virtusventures.geapp.R;
-import com.virtusventures.geapp.control.APICallback;
-import com.virtusventures.geapp.control.APIService;
-import com.virtusventures.geapp.model.Constants;
-import com.virtusventures.geapp.model.ParseJson;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -60,7 +60,7 @@ public class LandingActivity extends BaseActivity{
         pd.setMessage("Loading ...");
         pd.show();
 
-        subscription = APIService.getInstance().getBatchAPI(Constants.landing ,Constants.bottomtab);
+        subscription = APIService.getInstance().getBatchAPI(Constants.landing , Constants.bottomtab);
         APIService.getInstance().setOnCallback(new APICallback() {
             @Override
             public void doNext(JsonObject jsonObject) {
