@@ -1,5 +1,6 @@
 package com.virtusventures.geapp.control;
 
+import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
 /**
@@ -9,6 +10,7 @@ import com.google.gson.JsonObject;
 public interface APICallback {
 
     public void doNext(JsonObject jsonObject);
+    public void doNext(JsonArray jsonObject);
     public void doCompleted();
     public void doError(Throwable e);
 

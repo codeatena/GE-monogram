@@ -20,4 +20,15 @@ public class ParseJson {
         return String.format("%s/%s/%s/%s/" ,link ,bucket ,name ,photodirectory);
     }
 
+    public static String getVideoPath(JsonObject jsonObject)
+    {
+        JsonObject apiObject = jsonObject.get("api").getAsJsonObject();
+
+        String link = apiObject.get("link").getAsString();
+        String bucket = apiObject.get("bucket").getAsString();
+        String name = apiObject.get("name").getAsString();
+        String videodirectory = apiObject.get("videodirectory").getAsString();
+
+        return String.format("%s/%s/%s/%s/" ,link ,bucket ,name ,videodirectory);
+    }
 }

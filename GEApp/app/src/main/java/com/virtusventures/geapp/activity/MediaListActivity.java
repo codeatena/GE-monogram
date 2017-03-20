@@ -16,6 +16,7 @@ import com.virtusventures.geapp.adapter.MediaAdapter;
 import com.virtusventures.geapp.control.APICallback;
 import com.virtusventures.geapp.control.APIService;
 import com.virtusventures.geapp.model.Constants;
+import com.virtusventures.geapp.model.MediaModel;
 import com.virtusventures.geapp.model.ParseJson;
 import com.virtusventures.geapp.view.RecyclerItemClickListener;
 
@@ -37,8 +38,8 @@ public class MediaListActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        View decorView = getWindow().getDecorView();
-        decorView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_FULLSCREEN);
+//        View decorView = getWindow().getDecorView();
+//        decorView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_FULLSCREEN);
 
         setContentView(R.layout.activity_media_list);
         ButterKnife.bind(this);
@@ -94,10 +95,31 @@ public class MediaListActivity extends BaseActivity {
                 for (int i = 0 ; i < jsonArray.size() ; i ++)
                 {
                     //Log.d(TAG ,jsonArray.get(i).getAsString());
-                    String encodeSte = Uri.encode(jsonArray.get(i).getAsString());
-                    adapter.addMedia(photoPath + encodeSte);
+                    String encodeStr = Uri.encode(jsonArray.get(i).getAsString());
+                    MediaModel model = new MediaModel(photoPath + encodeStr , true);
+                    adapter.addMedia(model);
                 }
+
+                String videoPath = ParseJson.getPhotoPath(jsonObject);
+                if (jsonObject.get("api").getAsJsonObject().get("videos") instanceof JsonObject)
+                {
+                    jsonArray = jsonObject.get("api").getAsJsonObject().get("videos").getAsJsonObject().get("video").getAsJsonArray();
+                    for (int i = 0 ; i < jsonArray.size() ; i ++)
+                    {
+                        String encodeStr = Uri.encode(jsonArray.get(i).getAsString());
+                        Log.d(TAG ,videoPath + encodeStr);
+                        //MediaModel model = new MediaModel(videoPath + encodeStr , true);
+                        //adapter.addMedia(model);
+                    }
+                }
+
                 adapter.notifyDataSetChanged();
+
+            }
+
+            @Override
+            public void doNext(JsonArray jsonObject)
+            {
 
             }
 

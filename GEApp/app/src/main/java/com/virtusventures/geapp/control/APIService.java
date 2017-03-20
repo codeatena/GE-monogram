@@ -2,6 +2,7 @@ package com.virtusventures.geapp.control;
 
 import android.util.Log;
 
+import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.virtusventures.geapp.model.Constants;
 
@@ -15,6 +16,7 @@ import rx.Observable;
 import rx.Subscriber;
 import rx.Subscription;
 import rx.android.schedulers.AndroidSchedulers;
+import rx.functions.Func2;
 import rx.schedulers.Schedulers;
 
 /**
@@ -78,6 +80,58 @@ public class APIService {
 
                         Log.d("response" ,jsonObject.toString());
                         callback.doNext(jsonObject);
+                    }
+                });
+
+        return subscription;
+    }
+
+    public Subscription getBatchAPI(String name1 ,String name2)
+    {
+        Map<String, String> data1 = new HashMap<>();
+        data1.put("secretkey", "29245eb0655a62f37045e528da2f63fb");
+        data1.put("username", "matt");
+        data1.put("apiname", name1);
+
+        Map<String, String> data2 = new HashMap<>();
+        data2.put("secretkey", "29245eb0655a62f37045e528da2f63fb");
+        data2.put("username", "matt");
+        data2.put("apiname", name2);
+
+        final Observable<JsonObject> call1 = apiService.getAPI(data1);
+        final Observable<JsonObject> call2 = apiService.getAPI(data2);
+
+        Observable<JsonArray> combined = Observable.zip(call1, call2, new Func2<JsonObject, JsonObject, JsonArray>() {
+            @Override
+            public JsonArray call(JsonObject jsonObject1, JsonObject jsonObject2) {
+                JsonArray jsonArray = new JsonArray();
+                jsonArray.add(jsonObject1);
+                jsonArray.add(jsonObject2);
+                return jsonArray;
+            }
+        });
+
+        Subscription subscription = combined
+                .subscribeOn(Schedulers.io())
+                .unsubscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread()).subscribe(new Subscriber<JsonArray>() {
+                    @Override
+                    public void onCompleted() {
+
+                        callback.doCompleted();
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        // cast to retrofit.HttpException to get the response code
+                        callback.doError(e);
+                    }
+
+                    @Override
+                    public void onNext(JsonArray jsonArray) {
+
+                        Log.d("response" ,jsonArray.toString());
+                        callback.doNext(jsonArray);
                     }
                 });
 

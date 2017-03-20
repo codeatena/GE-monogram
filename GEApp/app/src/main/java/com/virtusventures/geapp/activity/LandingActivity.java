@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 
+import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.squareup.picasso.Picasso;
 import com.virtusventures.geapp.R;
@@ -23,9 +24,6 @@ public class LandingActivity extends BaseActivity{
 
     Subscription subscription;
 
-    @BindView(R.id.centerlogo_btn)
-    ImageButton centerlogoBtn;
-
     @BindView(R.id.cooking_btn)
     ImageButton cookingBtn;
 
@@ -35,12 +33,20 @@ public class LandingActivity extends BaseActivity{
     @BindView(R.id.refrigeration_btn)
     ImageButton refrigerationBtn;
 
+    @BindView(R.id.sweetreward_btn)
+    ImageButton sweetrewardBtn;
+
+    @BindView(R.id.experiencemonogram_btn)
+    ImageButton experiencemonogramBtn;
+
+    @BindView(R.id.inspiredkitchen_btn)
+    ImageButton inspiredkitchenBtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        View decorView = getWindow().getDecorView();
-        decorView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_FULLSCREEN);
+//        View decorView = getWindow().getDecorView();
+//        decorView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_FULLSCREEN);
 
         setContentView(R.layout.activity_landing);
 
@@ -54,14 +60,20 @@ public class LandingActivity extends BaseActivity{
         pd.setMessage("Loading ...");
         pd.show();
 
-        subscription = APIService.getInstance().getAPI(Constants.landing);
+        subscription = APIService.getInstance().getBatchAPI(Constants.landing ,Constants.bottomtab);
         APIService.getInstance().setOnCallback(new APICallback() {
             @Override
             public void doNext(JsonObject jsonObject) {
 
+            }
+
+            @Override
+            public void doNext(JsonArray jsonObject)
+            {
                 pd.dismiss();
 
-                String photoPath = ParseJson.getPhotoPath(jsonObject);
+                JsonObject jsonObject1 = jsonObject.get(0).getAsJsonObject();
+                String photoPath = ParseJson.getPhotoPath(jsonObject1);
                 Picasso.with(LandingActivity.this)
                         .load(photoPath + "cooking.jpg")
                         .into(cookingBtn);
@@ -74,9 +86,19 @@ public class LandingActivity extends BaseActivity{
                         .load(photoPath + "refridgeration.jpg")
                         .into(refrigerationBtn);
 
+                JsonObject jsonObject2 = jsonObject.get(1).getAsJsonObject();
+                photoPath = ParseJson.getPhotoPath(jsonObject2);
                 Picasso.with(LandingActivity.this)
-                        .load(photoPath + "logo_for_center.png")
-                        .into(centerlogoBtn);
+                        .load(photoPath + "sweet_rewards_button.png")
+                        .into(sweetrewardBtn);
+
+                Picasso.with(LandingActivity.this)
+                        .load(photoPath + "experience_monogram_button.png")
+                        .into(experiencemonogramBtn);
+
+                Picasso.with(LandingActivity.this)
+                        .load(photoPath + "inspired_kitchens.png")
+                        .into(inspiredkitchenBtn);
             }
 
             @Override
@@ -92,6 +114,7 @@ public class LandingActivity extends BaseActivity{
 
             }
         });
+
     }
 
     @Override
@@ -116,6 +139,27 @@ public class LandingActivity extends BaseActivity{
     public void onRefrigeration(View view)
     {
         Intent intent =  new Intent(this , RefrigerationActivity.class);
+        startActivity(intent);
+    }
+
+    public void onSweetRewards(View view)
+    {
+        Intent intent =  new Intent(this , MediaListActivity.class);
+        intent.putExtra(Constants.MEDIA_URL, Constants.sweetreward);
+        startActivity(intent);
+    }
+
+    public void onExperienceMonogram(View view)
+    {
+        Intent intent =  new Intent(this , MediaListActivity.class);
+        intent.putExtra(Constants.MEDIA_URL, Constants.experiencemonogram);
+        startActivity(intent);
+    }
+
+    public void onInspiredKitchen(View view)
+    {
+        Intent intent =  new Intent(this , MediaListActivity.class);
+        intent.putExtra(Constants.MEDIA_URL, Constants.inspiredkitchen);
         startActivity(intent);
     }
 }

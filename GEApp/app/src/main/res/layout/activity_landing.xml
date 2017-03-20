@@ -10,12 +10,12 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:weightSum="4">
+        android:weightSum="9">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="3" android:weightSum="2">
+            android:layout_weight="6" android:weightSum="2">
 
             <ImageButton
                 android:id="@+id/refrigeration_btn"
@@ -38,7 +38,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1">
+            android:layout_weight="2">
 
             <ImageButton
                 android:id="@+id/cleaning_btn"
@@ -46,16 +46,60 @@
                 android:layout_height="match_parent"
                 android:scaleType="fitXY"
                 android:background="@null"
-                android:onClick="onCleaning"/>
+                android:onClick="onCleaning"
+                />
         </LinearLayout>
-    </LinearLayout>
 
-    <ImageButton
-        android:id="@+id/centerlogo_btn"
-        android:layout_width="300dp"
-        android:layout_height="100dp"
-        android:layout_centerInParent="true"
-        android:scaleType="fitXY"
-        android:background="@null"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" android:weightSum="4"
+            android:gravity="center">
+
+            <ImageButton
+                android:id="@+id/sweetreward_btn"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:scaleType="fitXY"
+                android:background="@null"
+                android:onClick="onSweetRewards"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                />
+
+            <ImageButton
+                android:id="@+id/experiencemonogram_btn"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:scaleType="fitXY"
+                android:background="@null"
+                android:onClick="onExperienceMonogram"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                />
+
+            <ImageButton
+                android:id="@+id/inspiredkitchen_btn"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:scaleType="fitXY"
+                android:background="@null"
+                android:onClick="onInspiredKitchen"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                />
+
+        </LinearLayout>
+
+    </LinearLayout>
 
 </RelativeLayout>

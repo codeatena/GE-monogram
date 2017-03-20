@@ -1,7 +1,6 @@
 package com.virtusventures.geapp.activity;
 
 import android.os.Bundle;
-import android.view.View;
 
 import com.github.chrisbanes.photoview.PhotoView;
 import com.squareup.picasso.Callback;
@@ -21,8 +20,8 @@ public class DetailActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        View decorView = getWindow().getDecorView();
-        decorView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_FULLSCREEN);
+//        View decorView = getWindow().getDecorView();
+//        decorView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_FULLSCREEN);
 
         setContentView(R.layout.activity_detail);
         ButterKnife.bind(this);
