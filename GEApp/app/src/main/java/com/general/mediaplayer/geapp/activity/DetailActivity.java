@@ -38,24 +38,6 @@ public class DetailActivity extends BaseActivity {
         ButterKnife.bind(this);
 
         MediaModel model = (MediaModel)getIntent().getSerializableExtra(Constants.MEDIA_URL);
-//        Picasso.with(this)
-//                .load(model.photoPath)
-//                .resize(1000, 1000)
-//                .onlyScaleDown()
-//                .centerInside()
-//                .into(detailImageView, new Callback() {
-//                    @Override
-//                    public void onSuccess() {
-//
-//                    }
-//
-//                    @Override
-//                    public void onError() {
-//
-//                    }
-//                });
-
-
         if (model.bIsPhoto)
         {
             Picasso.with(this)

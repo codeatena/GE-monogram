@@ -7,7 +7,7 @@ package com.general.mediaplayer.geapp.model;
 public class Constants {
 
     public static final String API_DOMAIN  = "http://ec2-54-190-191-74.us-west-2.compute.amazonaws.com:8080/monogramapi-1.0-SNAPSHOT/api/";
-
+    public static final String MEDIA_URL   = "mediaurl";
 
     // unused API
     public static final String advantium = "advantium";
@@ -28,9 +28,10 @@ public class Constants {
     public static final String undercounter = "undercounter";
     public static final String videogallery = "videogallery";
     public static final String sidebyside = "sidebyside";
+    public static final String landing = "landing";
+    public static final String bottomtab = "bottomtab";
 
     // used API
-    public static final String bottomtab = "bottomtab";
     public static final String builtinrefrigeration = "builtinrefrigeration";
     public static final String cooktops = "cooktops";
     public static final String dishwasher = "dishwasher";
@@ -40,10 +41,8 @@ public class Constants {
     public static final String freestanding = "freestanding";
     public static final String fullsizerefrigeration = "fullsizerefrigeration";
     public static final String inspiredkitchen = "inspiredkitchen";
-    public static final String landing = "landing";
     public static final String professionalranges = "professionalranges";
     public static final String sweetreward = "sweetreward";
     public static final String wallovens = "wallovens";
-    public static final String MEDIA_URL   = "mediaurl";
 
 }
