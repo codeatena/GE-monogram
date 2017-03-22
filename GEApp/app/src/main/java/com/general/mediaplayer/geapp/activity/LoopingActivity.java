@@ -11,7 +11,6 @@ import android.widget.VideoView;
 
 import com.general.mediaplayer.geapp.R;
 
-
 public class LoopingActivity extends AppCompatActivity {
 
     TextView tvBeginButton;

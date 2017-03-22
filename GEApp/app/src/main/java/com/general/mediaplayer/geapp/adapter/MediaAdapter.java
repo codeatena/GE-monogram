@@ -1,8 +1,6 @@
 package com.general.mediaplayer.geapp.adapter;
 
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,7 +12,9 @@ import android.widget.RelativeLayout;
 import com.general.mediaplayer.geapp.R;
 import com.general.mediaplayer.geapp.model.Constants;
 import com.general.mediaplayer.geapp.model.MediaModel;
+import com.squareup.picasso.Picasso;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -49,9 +49,13 @@ public class MediaAdapter extends RecyclerView.Adapter{
         final MyViewHolder vh = (MyViewHolder) viewHolder;
         final MediaModel item = imageModels.get(position);
         String path = Constants.SD_PATH + item.photoPath;
-        Bitmap bmp = BitmapFactory.decodeFile(path);
-        if (bmp != null)
-                vh.imageView.setImageBitmap(Bitmap.createScaledBitmap(bmp, 1000, 1000, true));
+        Picasso.with(mContext)
+                .load(new File(path))
+                .resize(1000, 1000)
+                .onlyScaleDown()
+                .centerInside()
+                .into(vh.imageView);
+
         if (!item.bIsPhoto)
             vh.playImageView.setVisibility(View.VISIBLE);
     }

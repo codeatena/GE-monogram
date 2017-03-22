@@ -12,8 +12,7 @@
         android:id="@+id/detail_imageview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:adjustViewBounds="true"
-        android:scaleType="centerInside" />
+        android:scaleType="fitXY" />
 
     <com.devbrackets.android.exomedia.ui.widget.EMVideoView
         android:id="@+id/player_view"

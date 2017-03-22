@@ -1,7 +1,5 @@
 package com.general.mediaplayer.geapp.activity;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -12,6 +10,9 @@ import com.general.mediaplayer.geapp.R;
 import com.general.mediaplayer.geapp.model.Constants;
 import com.general.mediaplayer.geapp.model.MediaModel;
 import com.github.chrisbanes.photoview.PhotoView;
+import com.squareup.picasso.Picasso;
+
+import java.io.File;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -38,10 +39,12 @@ public class DetailActivity extends BaseActivity {
         if (model.bIsPhoto)
         {
             String path =  Constants.SD_PATH  + model.photoPath;
-            Bitmap bmp = BitmapFactory.decodeFile(path);
-            if (bmp != null)
-                detailImageView.setImageBitmap(Bitmap.createScaledBitmap(bmp, 1000, 1000, true));
-
+            Picasso.with(this)
+                    .load(new File(path))
+                    .resize(1000, 1000)
+                    .onlyScaleDown()
+                    .centerInside()
+                    .into(detailImageView);
         }
         else
         {
