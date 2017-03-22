@@ -1,28 +1,18 @@
 package com.general.mediaplayer.geapp.activity;
 
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
+import android.os.SystemClock;
 import android.view.View;
 import android.widget.ImageButton;
 
 import com.general.mediaplayer.geapp.R;
-import com.general.mediaplayer.geapp.control.APICallback;
-import com.general.mediaplayer.geapp.control.APIService;
 import com.general.mediaplayer.geapp.model.Constants;
-import com.general.mediaplayer.geapp.model.ParseJson;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
-import com.squareup.picasso.Picasso;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import rx.Subscription;
 
-public class LandingActivity extends BaseActivity{
-
-    Subscription subscription;
+public class LandingActivity extends BaseActivity implements View.OnClickListener{
 
     @BindView(R.id.cooking_btn)
     ImageButton cookingBtn;
@@ -41,6 +31,7 @@ public class LandingActivity extends BaseActivity{
 
     @BindView(R.id.inspiredkitchen_btn)
     ImageButton inspiredkitchenBtn;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,78 +40,16 @@ public class LandingActivity extends BaseActivity{
 //        decorView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_FULLSCREEN);
 
         setContentView(R.layout.activity_landing);
-
         ButterKnife.bind(this);
-        loadAPI();
-    }
 
-    private void loadAPI()
-    {
-        final ProgressDialog pd = new ProgressDialog(this);
-        pd.setMessage("Loading ...");
-        pd.show();
-
-        subscription = APIService.getInstance().getBatchAPI(Constants.landing , Constants.bottomtab);
-        APIService.getInstance().setOnCallback(new APICallback() {
-            @Override
-            public void doNext(JsonObject jsonObject) {
-
-            }
-
-            @Override
-            public void doNext(JsonArray jsonObject)
-            {
-                pd.dismiss();
-
-                JsonObject jsonObject1 = jsonObject.get(0).getAsJsonObject();
-                String photoPath = ParseJson.getPhotoPath(jsonObject1);
-                Picasso.with(LandingActivity.this)
-                        .load(photoPath + "cooking.jpg")
-                        .into(cookingBtn);
-
-                Picasso.with(LandingActivity.this)
-                        .load(photoPath + "cleaning.jpg")
-                        .into(cleaningBtn);
-
-                Picasso.with(LandingActivity.this)
-                        .load(photoPath + "refridgeration.jpg")
-                        .into(refrigerationBtn);
-
-                JsonObject jsonObject2 = jsonObject.get(1).getAsJsonObject();
-                photoPath = ParseJson.getPhotoPath(jsonObject2);
-                Picasso.with(LandingActivity.this)
-                        .load(photoPath + "sweet_rewards_button.png")
-                        .into(sweetrewardBtn);
-
-                Picasso.with(LandingActivity.this)
-                        .load(photoPath + "experience_monogram_button.png")
-                        .into(experiencemonogramBtn);
-
-                Picasso.with(LandingActivity.this)
-                        .load(photoPath + "inspired_kitchens.png")
-                        .into(inspiredkitchenBtn);
-            }
-
-            @Override
-            public void doCompleted() {
-
-            }
-
-            @Override
-            public void doError(Throwable e) {
-
-                pd.dismiss();
-                Log.e("error" ,e.getLocalizedMessage());
-
-            }
-        });
+        sweetrewardBtn.setOnClickListener(this);
+        inspiredkitchenBtn.setOnClickListener(this);
 
     }
 
     @Override
     protected void onDestroy() {
 
-        if (subscription != null) subscription.unsubscribe();
         super.onDestroy();
     }
 
@@ -161,5 +90,37 @@ public class LandingActivity extends BaseActivity{
         Intent intent =  new Intent(this , MediaListActivity.class);
         intent.putExtra(Constants.MEDIA_URL, Constants.inspiredkitchen);
         startActivity(intent);
+    }
+
+    private long mLastClickTIme = 0;
+    @Override
+    public void onClick(View v) {
+
+        if (SystemClock.elapsedRealtime() - mLastClickTIme < 500)
+        {
+            // show CSR app
+            Intent launchIntent = getPackageManager().getLaunchIntentForPackage("com.general.mediaplayer.csr");
+            if (launchIntent != null) {
+                startActivity(launchIntent);//null pointer check in case package name was not found
+            }
+
+            return;
+        }
+
+        mLastClickTIme = SystemClock.elapsedRealtime();
+
+        if (v == sweetrewardBtn)
+        {
+            Intent intent =  new Intent(this , MediaListActivity.class);
+            intent.putExtra(Constants.MEDIA_URL, Constants.sweetreward);
+            startActivity(intent);
+        }
+
+        if (v == inspiredkitchenBtn)
+        {
+            Intent intent =  new Intent(this , MediaListActivity.class);
+            intent.putExtra(Constants.MEDIA_URL, Constants.inspiredkitchen);
+            startActivity(intent);
+        }
     }
 }

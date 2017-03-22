@@ -22,17 +22,20 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:scaleType="fitXY"
                 android:background="@null"
-                android:onClick="onRefrigeration"/>
+                android:onClick="onRefrigeration"
+                android:scaleType="fitXY"
+                android:src="@drawable/refridgeration" />
+
             <ImageButton
                 android:id="@+id/cooking_btn"
                 android:layout_width="0dp"
-                android:layout_weight="1"
                 android:layout_height="match_parent"
-                android:scaleType="fitXY"
+                android:layout_weight="1"
                 android:background="@null"
-                android:onClick="onCooking"/>
+                android:onClick="onCooking"
+                android:scaleType="fitXY"
+                android:src="@drawable/cooking" />
         </LinearLayout>
 
         <LinearLayout
@@ -44,10 +47,10 @@
                 android:id="@+id/cleaning_btn"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:scaleType="fitXY"
                 android:background="@null"
                 android:onClick="onCleaning"
-                />
+                android:scaleType="fitXY"
+                android:src="@drawable/cleaning" />
         </LinearLayout>
 
         <LinearLayout
@@ -60,43 +63,41 @@
                 android:id="@+id/sweetreward_btn"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:scaleType="fitXY"
-                android:background="@null"
-                android:onClick="onSweetRewards"
                 android:layout_marginBottom="10dp"
-                android:layout_marginTop="10dp"
                 android:layout_marginLeft="30dp"
                 android:layout_marginRight="30dp"
-                />
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                android:background="@null"
+                android:scaleType="fitXY"
+                android:src="@drawable/sweet_rewards_button" />
 
             <ImageButton
                 android:id="@+id/experiencemonogram_btn"
                 android:layout_width="0dp"
-                android:layout_weight="1"
                 android:layout_height="match_parent"
-                android:scaleType="fitXY"
-                android:background="@null"
-                android:onClick="onExperienceMonogram"
                 android:layout_marginBottom="10dp"
-                android:layout_marginTop="10dp"
                 android:layout_marginLeft="30dp"
                 android:layout_marginRight="30dp"
-                />
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                android:background="@null"
+                android:onClick="onExperienceMonogram"
+                android:scaleType="fitXY"
+                android:src="@drawable/experience_monogram_button" />
 
             <ImageButton
                 android:id="@+id/inspiredkitchen_btn"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:scaleType="fitXY"
-                android:background="@null"
-                android:onClick="onInspiredKitchen"
                 android:layout_marginBottom="10dp"
-                android:layout_marginTop="10dp"
                 android:layout_marginLeft="30dp"
                 android:layout_marginRight="30dp"
-                />
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                android:background="@null"
+                android:scaleType="fitXY"
+                android:src="@drawable/inspired_kitchens" />
 
         </LinearLayout>
 
