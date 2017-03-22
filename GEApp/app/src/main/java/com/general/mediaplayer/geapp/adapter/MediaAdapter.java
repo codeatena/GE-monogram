@@ -1,8 +1,9 @@
 package com.general.mediaplayer.geapp.adapter;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,9 +12,8 @@ import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 
 import com.general.mediaplayer.geapp.R;
+import com.general.mediaplayer.geapp.model.Constants;
 import com.general.mediaplayer.geapp.model.MediaModel;
-import com.squareup.picasso.Callback;
-import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -48,29 +48,12 @@ public class MediaAdapter extends RecyclerView.Adapter{
 
         final MyViewHolder vh = (MyViewHolder) viewHolder;
         final MediaModel item = imageModels.get(position);
-
-        Picasso.with(mContext)
-                .load(item.photoPath)
-                .resize(1000, 1000)
-                .onlyScaleDown()
-                .centerInside()
-                .into(vh.imageView, new Callback() {
-                    @Override
-                    public void onSuccess() {
-
-                        if (!item.bIsPhoto)
-                            vh.playImageView.setVisibility(View.VISIBLE);
-                        vh.progressBar.setVisibility(View.GONE);
-                    }
-
-                    @Override
-                    public void onError() {
-                        Log.d("error", item.photoPath);
-                        if (!item.bIsPhoto)
-                            vh.playImageView.setVisibility(View.VISIBLE);
-                        vh.progressBar.setVisibility(View.GONE);
-                    }
-                });
+        String path = Constants.SD_PATH + item.photoPath;
+        Bitmap bmp = BitmapFactory.decodeFile(path);
+        if (bmp != null)
+                vh.imageView.setImageBitmap(Bitmap.createScaledBitmap(bmp, 1000, 1000, true));
+        if (!item.bIsPhoto)
+            vh.playImageView.setVisibility(View.VISIBLE);
     }
 
     @Override

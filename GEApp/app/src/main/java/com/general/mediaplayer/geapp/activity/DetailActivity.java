@@ -1,20 +1,17 @@
 package com.general.mediaplayer.geapp.activity;
 
-import android.net.Uri;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
-import com.danikula.videocache.HttpProxyCacheServer;
 import com.devbrackets.android.exomedia.listener.OnPreparedListener;
 import com.devbrackets.android.exomedia.ui.widget.EMVideoView;
-import com.general.mediaplayer.geapp.GEApplication;
 import com.general.mediaplayer.geapp.R;
 import com.general.mediaplayer.geapp.model.Constants;
 import com.general.mediaplayer.geapp.model.MediaModel;
 import com.github.chrisbanes.photoview.PhotoView;
-import com.squareup.picasso.Callback;
-import com.squareup.picasso.Picasso;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -40,29 +37,15 @@ public class DetailActivity extends BaseActivity {
         MediaModel model = (MediaModel)getIntent().getSerializableExtra(Constants.MEDIA_URL);
         if (model.bIsPhoto)
         {
-            Picasso.with(this)
-                    .load(model.photoPath)
-                    .resize(1000, 1000)
-                    .onlyScaleDown()
-                    .centerInside()
-                    .into(detailImageView, new Callback() {
-                        @Override
-                        public void onSuccess() {
+            String path =  Constants.SD_PATH  + model.photoPath;
+            Bitmap bmp = BitmapFactory.decodeFile(path);
+            if (bmp != null)
+                detailImageView.setImageBitmap(Bitmap.createScaledBitmap(bmp, 1000, 1000, true));
 
-                        }
-
-                        @Override
-                        public void onError() {
-
-                        }
-                    });
         }
         else
         {
-            videoView.setVisibility( View.VISIBLE);
-            HttpProxyCacheServer proxy = GEApplication.getProxy(this);
-            String proxyUrl = proxy.getProxyUrl(model.videooPath);
-
+            videoView.setVisibility(View.VISIBLE);
             Log.d("video path" ,model.videooPath);
             videoView.setOnPreparedListener(new OnPreparedListener() {
                 @Override
@@ -71,11 +54,10 @@ public class DetailActivity extends BaseActivity {
                     videoView.start();
                 }
             });
-            //videoView.setVideoURI(Uri.parse(model.videooPath));
-            videoView.setVideoURI(Uri.parse(proxyUrl));
 
+            String path =  "file:///" + Constants.SD_PATH + model.videooPath;
+            videoView.setVideoPath(path);
         }
-
     }
 
     public void onBack(View view){

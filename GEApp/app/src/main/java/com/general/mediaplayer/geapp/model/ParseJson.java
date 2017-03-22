@@ -17,7 +17,10 @@ public class ParseJson {
         String name = apiObject.get("name").getAsString();
         String photodirectory = apiObject.get("photodirectory").getAsString();
 
-        return String.format("%s/%s/%s/%s/" ,link ,bucket ,name ,photodirectory);
+        //return String.format("%s/%s/%s/%s/" ,link ,bucket ,name ,photodirectory);
+
+        return String.format("%s/%s/"  ,name ,photodirectory);
+
     }
 
     public static String getVideoPath(JsonObject jsonObject)
@@ -29,6 +32,6 @@ public class ParseJson {
         String name = apiObject.get("name").getAsString();
         String videodirectory = apiObject.get("videodirectory").getAsString();
 
-        return String.format("%s/%s/%s/%s/" ,link ,bucket ,name ,videodirectory);
+        return String.format("%s/%s/"  ,name ,videodirectory);
     }
 }
