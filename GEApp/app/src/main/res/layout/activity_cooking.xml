@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.general.geapp.activity.CookingActivity">
+    tools:context="com.general.mediaplayer.geapp.activity.CookingActivity">
 
     <ImageView
         android:layout_width="match_parent"
@@ -58,11 +58,10 @@
     </LinearLayout>
 
     <Button
-        android:layout_width="140dp"
-        android:layout_height="38dp"
-        android:text="BACK"
+        android:layout_width="80dp"
+        android:layout_height="50dp"
         android:textSize="15sp"
-        android:background="@drawable/border_button"
+        android:background="@drawable/back_button"
         android:textColor="@android:color/darker_gray"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"

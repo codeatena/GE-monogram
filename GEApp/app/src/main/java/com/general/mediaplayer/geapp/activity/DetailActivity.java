@@ -77,7 +77,7 @@ public class DetailActivity extends BaseActivity {
         }
         else
         {
-            videoView.setVisibility(View.VISIBLE);
+            videoView.setVisibility( View.VISIBLE);
             HttpProxyCacheServer proxy = GEApplication.getProxy(this);
             String proxyUrl = proxy.getProxyUrl(model.videooPath);
 
