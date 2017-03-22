@@ -22,7 +22,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1.35"
             android:orientation="vertical"
-            android:weightSum="3">
+            android:weightSum="4">
 
             <Button
                 android:id="@+id/cookingfirst_btn"
@@ -53,6 +53,16 @@
                 android:text="@string/cooking_thirdbtn"
                 android:textSize="@dimen/textsize_30"
                 android:onClick="onThirdClick"/>
+
+            <Button
+                android:id="@+id/cookingfourth_btn"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:text="@string/cooking_fourthbtn"
+                android:textSize="@dimen/textsize_30"
+                android:onClick="onFourthClick"/>
 
         </LinearLayout>
     </LinearLayout>

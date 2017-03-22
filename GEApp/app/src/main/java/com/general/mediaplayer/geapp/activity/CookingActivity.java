@@ -23,6 +23,9 @@ public class CookingActivity extends BaseActivity {
     @BindView(R.id.cookingthird_btn)
     Button thirdBtn;
 
+    @BindView(R.id.cookingfourth_btn)
+    Button fourthBtn;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,6 +48,7 @@ public class CookingActivity extends BaseActivity {
         firstBtn.setBackgroundColor(ContextCompat.getColor(this, R.color.colorCooking));
         secondBtn.setBackgroundColor(ContextCompat.getColor(this, R.color.transparent));
         thirdBtn.setBackgroundColor(ContextCompat.getColor(this, R.color.transparent));
+        fourthBtn.setBackgroundColor(ContextCompat.getColor(this, R.color.transparent));
 
         Intent intent = new Intent(this , MediaListActivity.class);
         intent.putExtra(Constants.MEDIA_URL, Constants.professionalranges);
@@ -56,6 +60,7 @@ public class CookingActivity extends BaseActivity {
         secondBtn.setBackgroundColor(ContextCompat.getColor(this, R.color.colorCooking));
         firstBtn.setBackgroundColor(ContextCompat.getColor(this, R.color.transparent));
         thirdBtn.setBackgroundColor(ContextCompat.getColor(this, R.color.transparent));
+        fourthBtn.setBackgroundColor(ContextCompat.getColor(this, R.color.transparent));
 
         Intent intent = new Intent(this , MediaListActivity.class);
         intent.putExtra(Constants.MEDIA_URL, Constants.cooktops);
@@ -67,9 +72,22 @@ public class CookingActivity extends BaseActivity {
         thirdBtn.setBackgroundColor(ContextCompat.getColor(this, R.color.colorCooking));
         secondBtn.setBackgroundColor(ContextCompat.getColor(this, R.color.transparent));
         firstBtn.setBackgroundColor(ContextCompat.getColor(this, R.color.transparent));
+        fourthBtn.setBackgroundColor(ContextCompat.getColor(this, R.color.transparent));
 
         Intent intent = new Intent(this , MediaListActivity.class);
         intent.putExtra(Constants.MEDIA_URL, Constants.wallovens);
+        startActivity(intent);
+    }
+
+    public void onFourthClick(View view)
+    {
+        fourthBtn.setBackgroundColor(ContextCompat.getColor(this, R.color.colorCooking));
+        secondBtn.setBackgroundColor(ContextCompat.getColor(this, R.color.transparent));
+        firstBtn.setBackgroundColor(ContextCompat.getColor(this, R.color.transparent));
+        thirdBtn.setBackgroundColor(ContextCompat.getColor(this, R.color.transparent));
+
+        Intent intent = new Intent(this , MediaListActivity.class);
+        intent.putExtra(Constants.MEDIA_URL, Constants.pizzaoven);
         startActivity(intent);
     }
 }

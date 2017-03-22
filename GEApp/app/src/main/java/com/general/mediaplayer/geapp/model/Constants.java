@@ -44,5 +44,6 @@ public class Constants {
     public static final String professionalranges = "professionalranges";
     public static final String sweetreward = "sweetreward";
     public static final String wallovens = "wallovens";
+    public static final String pizzaoven = "pizzaoven";
 
 }
