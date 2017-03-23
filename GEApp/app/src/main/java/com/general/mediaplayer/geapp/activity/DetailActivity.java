@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
+import com.devbrackets.android.exomedia.listener.OnCompletionListener;
 import com.devbrackets.android.exomedia.listener.OnPreparedListener;
 import com.devbrackets.android.exomedia.ui.widget.EMVideoView;
 import com.general.mediaplayer.geapp.R;
@@ -38,7 +39,7 @@ public class DetailActivity extends BaseActivity {
         MediaModel model = (MediaModel)getIntent().getSerializableExtra(Constants.MEDIA_URL);
         if (model.bIsPhoto)
         {
-            String path =  Constants.SD_PATH  + model.photoPath;
+            String path =  Constants.SD_PATH  + model.photoPathFromSD;
             Picasso.with(this)
                     .load(new File(path))
                     .resize(1000, 1000)
@@ -49,7 +50,7 @@ public class DetailActivity extends BaseActivity {
         else
         {
             videoView.setVisibility(View.VISIBLE);
-            Log.d("video path" ,model.videooPath);
+            Log.d("video path" ,model.videooPathFromSD);
             videoView.setOnPreparedListener(new OnPreparedListener() {
                 @Override
                 public void onPrepared() {
@@ -58,7 +59,14 @@ public class DetailActivity extends BaseActivity {
                 }
             });
 
-            String path =  "file:///" + Constants.SD_PATH + model.videooPath;
+            videoView.setOnCompletionListener(new OnCompletionListener() {
+                @Override
+                public void onCompletion() {
+
+                    videoView.seekTo(0);
+                }
+            });
+            String path =  "file:///" + Constants.SD_PATH + model.videooPathFromSD;
             videoView.setVideoPath(path);
         }
     }

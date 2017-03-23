@@ -2,6 +2,7 @@ package com.general.mediaplayer.geapp.activity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
@@ -94,9 +95,12 @@ public class MediaListActivity extends BaseActivity {
                 for (int i = 0 ; i < jsonArray.size() ; i ++)
                 {
                     //Log.d(TAG ,jsonArray.get(i).getAsString());
-                    //String encodeStr = Uri.encode(jsonArray.get(i).getAsString());
+                    String encodeStr = Uri.encode(jsonArray.get(i).getAsString());
                     MediaModel model = new MediaModel(photoPath + jsonArray.get(i).getAsString() , true);
+                    model.photoPathFromServer =  ParseJson.getPhotoPathServer(jsonObject) + encodeStr;
                     adapter.addMedia(model);
+
+                    // check if exist photo file in SD card
                 }
 
                 String videoPath = ParseJson.getVideoPath(jsonObject);
@@ -105,14 +109,19 @@ public class MediaListActivity extends BaseActivity {
                     jsonArray = jsonObject.get("api").getAsJsonObject().get("videos").getAsJsonObject().get("video").getAsJsonArray();
                     for (int i = 0 ; i < jsonArray.size() ; i ++)
                     {
-                        //String encodeStr = Uri.encode(jsonArray.get(i).getAsString());
+                        String encodeStr = Uri.encode(jsonArray.get(i).getAsString());
                         String subStr = jsonArray.get(i).getAsString().replaceAll(".mp4" ,"");
                         int index = adapter.getMedia(subStr);
                         if (index != -1)
                         {
                             MediaModel model = adapter.getMedia(index);
                             model.bIsPhoto = false;
-                            model.videooPath =  videoPath + jsonArray.get(i).getAsString();
+                            model.videooPathFromSD =  videoPath + jsonArray.get(i).getAsString();
+                            model.videooPathFromServer =  ParseJson.getVideoPathServer(jsonObject) + encodeStr;
+                            model.photoPathFromServer = ParseJson.getPhotoPathServer(jsonObject) + encodeStr.replaceAll(".mp4" ,"");
+
+                            // check if exist photo and video file in SD card
+
                         }
                     }
                 }

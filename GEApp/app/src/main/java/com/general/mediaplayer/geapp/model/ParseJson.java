@@ -17,8 +17,6 @@ public class ParseJson {
         String name = apiObject.get("name").getAsString();
         String photodirectory = apiObject.get("photodirectory").getAsString();
 
-        //return String.format("%s/%s/%s/%s/" ,link ,bucket ,name ,photodirectory);
-
         return String.format("%s/%s/"  ,name ,photodirectory);
 
     }
@@ -33,5 +31,30 @@ public class ParseJson {
         String videodirectory = apiObject.get("videodirectory").getAsString();
 
         return String.format("%s/%s/"  ,name ,videodirectory);
+    }
+
+    public static String getPhotoPathServer(JsonObject jsonObject)
+    {
+        JsonObject apiObject = jsonObject.get("api").getAsJsonObject();
+
+        String link = apiObject.get("link").getAsString();
+        String bucket = apiObject.get("bucket").getAsString();
+        String name = apiObject.get("name").getAsString();
+        String photodirectory = apiObject.get("photodirectory").getAsString();
+
+        return String.format("%s/%s/%s/%s/" ,link ,bucket ,name ,photodirectory);
+
+    }
+
+    public static String getVideoPathServer(JsonObject jsonObject)
+    {
+        JsonObject apiObject = jsonObject.get("api").getAsJsonObject();
+
+        String link = apiObject.get("link").getAsString();
+        String bucket = apiObject.get("bucket").getAsString();
+        String name = apiObject.get("name").getAsString();
+        String videodirectory = apiObject.get("videodirectory").getAsString();
+
+        return String.format("%s/%s/%s/%s/" ,link ,bucket ,name ,videodirectory);
     }
 }

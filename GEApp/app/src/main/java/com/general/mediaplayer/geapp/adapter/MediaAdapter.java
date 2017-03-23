@@ -48,13 +48,21 @@ public class MediaAdapter extends RecyclerView.Adapter{
 
         final MyViewHolder vh = (MyViewHolder) viewHolder;
         final MediaModel item = imageModels.get(position);
-        String path = Constants.SD_PATH + item.photoPath;
-        Picasso.with(mContext)
-                .load(new File(path))
-                .resize(1000, 1000)
-                .onlyScaleDown()
-                .centerInside()
-                .into(vh.imageView);
+        String path = Constants.SD_PATH + item.photoPathFromSD;
+        File file = new File(path);
+        if(file.exists())
+        {
+            Picasso.with(mContext)
+                    .load(file)
+                    .resize(1000, 1000)
+                    .onlyScaleDown()
+                    .centerInside()
+                    .into(vh.imageView);
+        }
+        else
+        {
+            // download fle
+        }
 
         if (!item.bIsPhoto)
             vh.playImageView.setVisibility(View.VISIBLE);
@@ -75,7 +83,7 @@ public class MediaAdapter extends RecyclerView.Adapter{
         for (int i = 0 ; i < imageModels.size() ; i ++)
         {
             MediaModel model = imageModels.get(i);
-            if (model.photoPath.contains(name)) return i;
+            if (model.photoPathFromSD.contains(name)) return i;
         }
 
         return -1;
@@ -88,7 +96,7 @@ public class MediaAdapter extends RecyclerView.Adapter{
 
     public String getUrl(int position)
     {
-        return imageModels.get(position).photoPath;
+        return imageModels.get(position).photoPathFromSD;
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {

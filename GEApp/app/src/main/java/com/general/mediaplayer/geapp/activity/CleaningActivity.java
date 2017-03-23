@@ -1,6 +1,7 @@
 package com.general.mediaplayer.geapp.activity;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.view.View;
@@ -32,6 +33,11 @@ public class CleaningActivity extends BaseActivity {
 
         setContentView(R.layout.activity_cleaning);
         ButterKnife.bind(this);
+
+        Typeface copperplateGothicLight = Typeface.createFromAsset(getAssets(), "fonts/Gotham Medium.otf");
+        firstBtn.setTypeface(copperplateGothicLight);
+        secondBtn.setTypeface(copperplateGothicLight);
+        thirdBtn.setTypeface(copperplateGothicLight);
 
     }
 

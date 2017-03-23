@@ -2,7 +2,6 @@ package com.general.mediaplayer.geapp;
 
 import android.app.Application;
 
-import com.danikula.videocache.HttpProxyCacheServer;
 import com.squareup.picasso.OkHttpDownloader;
 import com.squareup.picasso.Picasso;
 
@@ -11,8 +10,6 @@ import com.squareup.picasso.Picasso;
  */
 
 public class GEApplication extends Application {
-
-    private HttpProxyCacheServer proxy;
 
     @Override
     public void onCreate() {

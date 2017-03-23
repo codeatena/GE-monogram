@@ -8,14 +8,17 @@ import java.io.Serializable;
 
 public class MediaModel implements Serializable{
 
-    public String photoPath;
-    public String videooPath;
+    public String photoPathFromSD;
+    public String videooPathFromSD;
+
+    public String photoPathFromServer;
+    public String videooPathFromServer;
 
     public Boolean bIsPhoto;
 
     public MediaModel(String path , Boolean IsPhoto)
     {
-        photoPath = path;
+        photoPathFromSD = path;
         bIsPhoto = IsPhoto;
     }
 }
