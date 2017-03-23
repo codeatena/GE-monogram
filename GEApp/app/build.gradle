@@ -45,7 +45,7 @@ dependencies {
     compile 'com.squareup.picasso:picasso:2.5.2'
 
     compile 'com.devbrackets.android:exomedia:3.1.1' // video player
-    compile 'com.mani:ThinDownloadManager:1.3.0' // download photo and video from server
+    compile 'com.danikula:videocache:2.6.4'
 
     testCompile 'junit:junit:4.12'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'

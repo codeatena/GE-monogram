@@ -14,11 +14,15 @@ public class MediaModel implements Serializable{
     public String photoPathFromServer;
     public String videooPathFromServer;
 
+    public Boolean isExistPhoto;
+    public Boolean isExistVideo;
+
     public Boolean bIsPhoto;
 
     public MediaModel(String path , Boolean IsPhoto)
     {
         photoPathFromSD = path;
         bIsPhoto = IsPhoto;
+        isExistPhoto = true;
     }
 }

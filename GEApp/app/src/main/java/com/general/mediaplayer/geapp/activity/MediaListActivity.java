@@ -20,6 +20,8 @@ import com.general.mediaplayer.geapp.view.RecyclerItemClickListener;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
+import java.io.File;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import rx.Subscription;
@@ -98,9 +100,14 @@ public class MediaListActivity extends BaseActivity {
                     String encodeStr = Uri.encode(jsonArray.get(i).getAsString());
                     MediaModel model = new MediaModel(photoPath + jsonArray.get(i).getAsString() , true);
                     model.photoPathFromServer =  ParseJson.getPhotoPathServer(jsonObject) + encodeStr;
-                    adapter.addMedia(model);
-
                     // check if exist photo file in SD card
+                    File file = new File(Constants.SD_PATH  + model.photoPathFromSD);
+                    if(!file.exists())
+                        model.isExistPhoto = false;
+                    else
+                        model.isExistPhoto = true;
+
+                    adapter.addMedia(model);
                 }
 
                 String videoPath = ParseJson.getVideoPath(jsonObject);
@@ -118,10 +125,12 @@ public class MediaListActivity extends BaseActivity {
                             model.bIsPhoto = false;
                             model.videooPathFromSD =  videoPath + jsonArray.get(i).getAsString();
                             model.videooPathFromServer =  ParseJson.getVideoPathServer(jsonObject) + encodeStr;
-                            model.photoPathFromServer = ParseJson.getPhotoPathServer(jsonObject) + encodeStr.replaceAll(".mp4" ,"");
-
-                            // check if exist photo and video file in SD card
-
+                            model.photoPathFromServer = ParseJson.getPhotoPathServer(jsonObject) + encodeStr.replaceAll(".mp4" ,".jpg");
+                            File file = new File(Constants.SD_PATH  + model.videooPathFromSD);
+                            if(!file.exists())
+                                model.isExistVideo = false;
+                            else
+                                model.isExistVideo = true;
                         }
                     }
                 }
@@ -143,14 +152,8 @@ public class MediaListActivity extends BaseActivity {
             @Override
             public void doError(Throwable e) {
 
-                try {
-                    pd.dismiss();
-                }catch(Throwable e1) {
-                    // Log the exception
-                    Log.e("error" ,e.getLocalizedMessage());
-
-                }
-
+                pd.dismiss();
+                Log.e("error" ,e.getLocalizedMessage());
             }
         });
     }
@@ -159,4 +162,5 @@ public class MediaListActivity extends BaseActivity {
 
         finish();
     }
+
 }

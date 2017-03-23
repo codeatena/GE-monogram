@@ -1,16 +1,20 @@
 package com.general.mediaplayer.geapp.activity;
 
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
+import com.danikula.videocache.HttpProxyCacheServer;
 import com.devbrackets.android.exomedia.listener.OnCompletionListener;
 import com.devbrackets.android.exomedia.listener.OnPreparedListener;
 import com.devbrackets.android.exomedia.ui.widget.EMVideoView;
+import com.general.mediaplayer.geapp.GEApplication;
 import com.general.mediaplayer.geapp.R;
 import com.general.mediaplayer.geapp.model.Constants;
 import com.general.mediaplayer.geapp.model.MediaModel;
 import com.github.chrisbanes.photoview.PhotoView;
+import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
 import java.io.File;
@@ -39,13 +43,36 @@ public class DetailActivity extends BaseActivity {
         MediaModel model = (MediaModel)getIntent().getSerializableExtra(Constants.MEDIA_URL);
         if (model.bIsPhoto)
         {
-            String path =  Constants.SD_PATH  + model.photoPathFromSD;
-            Picasso.with(this)
-                    .load(new File(path))
-                    .resize(1000, 1000)
-                    .onlyScaleDown()
-                    .centerInside()
-                    .into(detailImageView);
+
+            if (model.isExistPhoto)
+            {
+                String path =  Constants.SD_PATH  + model.photoPathFromSD;
+                Picasso.with(this)
+                        .load(new File(path))
+                        .resize(1000, 1000)
+                        .onlyScaleDown()
+                        .centerInside()
+                        .into(detailImageView);
+            }
+            else
+            {
+                Picasso.with(this)
+                        .load(model.photoPathFromServer)
+                        .resize(1000, 1000)
+                        .onlyScaleDown()
+                        .centerInside()
+                        .into(detailImageView, new Callback() {
+                            @Override
+                            public void onSuccess() {
+
+                            }
+
+                            @Override
+                            public void onError() {
+
+                            }
+                        });
+            }
         }
         else
         {
@@ -63,11 +90,24 @@ public class DetailActivity extends BaseActivity {
                 @Override
                 public void onCompletion() {
 
-                    videoView.seekTo(0);
+                    videoView.restart();
                 }
             });
-            String path =  "file:///" + Constants.SD_PATH + model.videooPathFromSD;
-            videoView.setVideoPath(path);
+
+            videoView.setVisibility( View.VISIBLE);
+            if (model.isExistVideo)
+            {
+                // from sd card
+                String path =  "file:///" + Constants.SD_PATH + model.videooPathFromSD;
+                videoView.setVideoPath(path);
+            }
+            else
+            {
+                // from server
+                HttpProxyCacheServer proxy = GEApplication.getProxy(this);
+                String proxyUrl = proxy.getProxyUrl(model.videooPathFromServer);
+                videoView.setVideoURI(Uri.parse(proxyUrl));
+            }
         }
     }
 

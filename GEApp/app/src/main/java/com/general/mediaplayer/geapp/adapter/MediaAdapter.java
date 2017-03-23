@@ -12,6 +12,7 @@ import android.widget.RelativeLayout;
 import com.general.mediaplayer.geapp.R;
 import com.general.mediaplayer.geapp.model.Constants;
 import com.general.mediaplayer.geapp.model.MediaModel;
+import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
 import java.io.File;
@@ -62,6 +63,23 @@ public class MediaAdapter extends RecyclerView.Adapter{
         else
         {
             // download fle
+            vh.progressBar.setVisibility(View.VISIBLE);
+            Picasso.with(mContext)
+                    .load(item.photoPathFromServer)
+                    .resize(1000, 1000)
+                    .onlyScaleDown()
+                    .centerInside()
+                    .into(vh.imageView, new Callback() {
+                        @Override
+                        public void onSuccess() {
+                            vh.progressBar.setVisibility(View.INVISIBLE);
+                        }
+
+                        @Override
+                        public void onError() {
+                            vh.progressBar.setVisibility(View.INVISIBLE);
+                        }
+                    });
         }
 
         if (!item.bIsPhoto)
