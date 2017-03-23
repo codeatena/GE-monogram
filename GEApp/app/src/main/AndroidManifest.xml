@@ -4,50 +4,54 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
+        android:name=".GEApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:largeHeap="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme"
-        android:name="com.general.mediaplayer.geapp.GEApplication">
+        android:theme="@style/AppTheme">
         <activity
-            android:name="com.general.mediaplayer.geapp.activity.LandingActivity"
+            android:name=".activity.LandingActivity"
             android:screenOrientation="landscape" />
         <activity
-            android:name="com.general.mediaplayer.geapp.activity.SplashActivity"
+            android:name=".activity.SplashActivity"
             android:screenOrientation="landscape">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
-            android:name="com.general.mediaplayer.geapp.activity.LoopingActivity"
+            android:name=".activity.LoopingActivity"
             android:screenOrientation="landscape" />
         <activity
-            android:name="com.general.mediaplayer.geapp.activity.CookingActivity"
+            android:name=".activity.CookingActivity"
             android:screenOrientation="landscape" />
         <activity
-            android:name="com.general.mediaplayer.geapp.activity.CleaningActivity"
+            android:name=".activity.CleaningActivity"
             android:screenOrientation="landscape" />
         <activity
-            android:name="com.general.mediaplayer.geapp.activity.RefrigerationActivity"
+            android:name=".activity.RefrigerationActivity"
             android:screenOrientation="landscape">
         </activity>
         <activity
-            android:name="com.general.mediaplayer.geapp.activity.MediaListActivity"
+            android:name=".activity.MediaListActivity"
             android:screenOrientation="landscape">
         </activity>
-        <activity android:name="com.general.mediaplayer.geapp.activity.DetailActivity"
+        <activity
+            android:name=".activity.DetailActivity"
             android:screenOrientation="landscape">
         </activity>
-
+        <activity android:name=".activity.LocationActivity"
+            android:screenOrientation="landscape">
+        </activity>
     </application>
 
 </manifest>

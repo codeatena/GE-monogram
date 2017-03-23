@@ -7,8 +7,12 @@ import android.support.v4.content.ContextCompat;
 import android.view.View;
 import android.widget.Button;
 
+import com.general.mediaplayer.geapp.GEApplication;
 import com.general.mediaplayer.geapp.R;
 import com.general.mediaplayer.geapp.model.Constants;
+import com.general.mediaplayer.geapp.model.Global;
+import com.google.android.gms.analytics.HitBuilders;
+import com.google.android.gms.analytics.Tracker;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -52,6 +56,13 @@ public class CleaningActivity extends BaseActivity {
         secondBtn.setBackgroundColor(ContextCompat.getColor(this, R.color.transparent));
         thirdBtn.setBackgroundColor(ContextCompat.getColor(this, R.color.transparent));
 
+        Tracker t = ((GEApplication)getApplication()).getDefaultTracker();
+        t.send(new HitBuilders.EventBuilder()
+                .setCategory(Global.location)
+                .setAction("category")
+                .setLabel(Constants.dishwasher)
+                .build());
+
         Intent intent = new Intent(this , MediaListActivity.class);
         intent.putExtra(Constants.MEDIA_URL, Constants.dishwasher);
         startActivity(intent);
@@ -64,6 +75,13 @@ public class CleaningActivity extends BaseActivity {
         firstBtn.setBackgroundColor(ContextCompat.getColor(this, R.color.transparent));
         thirdBtn.setBackgroundColor(ContextCompat.getColor(this, R.color.transparent));
 
+        Tracker t = ((GEApplication)getApplication()).getDefaultTracker();
+        t.send(new HitBuilders.EventBuilder()
+                .setCategory(Global.location)
+                .setAction("category")
+                .setLabel(Constants.dishwashercompactor)
+                .build());
+
         Intent intent = new Intent(this , MediaListActivity.class);
         intent.putExtra(Constants.MEDIA_URL, Constants.dishwashercompactor);
         startActivity(intent);
@@ -74,6 +92,13 @@ public class CleaningActivity extends BaseActivity {
         thirdBtn.setBackgroundColor(ContextCompat.getColor(this, R.color.colorCleaning));
         secondBtn.setBackgroundColor(ContextCompat.getColor(this, R.color.transparent));
         firstBtn.setBackgroundColor(ContextCompat.getColor(this, R.color.transparent));
+
+        Tracker t = ((GEApplication)getApplication()).getDefaultTracker();
+        t.send(new HitBuilders.EventBuilder()
+                .setCategory(Global.location)
+                .setAction("category")
+                .setLabel(Constants.energystardishwasher)
+                .build());
 
         Intent intent = new Intent(this , MediaListActivity.class);
         intent.putExtra(Constants.MEDIA_URL, Constants.energystardishwasher);

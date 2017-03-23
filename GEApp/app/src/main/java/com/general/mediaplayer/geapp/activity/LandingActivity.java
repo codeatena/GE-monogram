@@ -6,8 +6,12 @@ import android.os.SystemClock;
 import android.view.View;
 import android.widget.ImageButton;
 
+import com.general.mediaplayer.geapp.GEApplication;
 import com.general.mediaplayer.geapp.R;
 import com.general.mediaplayer.geapp.model.Constants;
+import com.general.mediaplayer.geapp.model.Global;
+import com.google.android.gms.analytics.HitBuilders;
+import com.google.android.gms.analytics.Tracker;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -55,18 +59,39 @@ public class LandingActivity extends BaseActivity implements View.OnClickListene
 
     public void onCooking(View view)
     {
+        Tracker t = ((GEApplication)getApplication()).getDefaultTracker();
+        t.send(new HitBuilders.EventBuilder()
+                .setCategory(Global.location)
+                .setAction("category")
+                .setLabel("cooking")
+                .build());
+
         Intent intent =  new Intent(this , CookingActivity.class);
         startActivity(intent);
     }
 
     public void onCleaning(View view)
     {
+        Tracker t = ((GEApplication)getApplication()).getDefaultTracker();
+        t.send(new HitBuilders.EventBuilder()
+                .setCategory(Global.location)
+                .setAction("category")
+                .setLabel("cleaning")
+                .build());
+
         Intent intent =  new Intent(this , CleaningActivity.class);
         startActivity(intent);
     }
 
     public void onRefrigeration(View view)
     {
+        Tracker t = ((GEApplication)getApplication()).getDefaultTracker();
+        t.send(new HitBuilders.EventBuilder()
+                .setCategory(Global.location)
+                .setAction("category")
+                .setLabel("refrigeration")
+                .build());
+
         Intent intent =  new Intent(this , RefrigerationActivity.class);
         startActivity(intent);
     }

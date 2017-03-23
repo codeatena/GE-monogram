@@ -4,6 +4,8 @@ import android.app.Application;
 import android.content.Context;
 
 import com.danikula.videocache.HttpProxyCacheServer;
+import com.google.android.gms.analytics.GoogleAnalytics;
+import com.google.android.gms.analytics.Tracker;
 import com.squareup.picasso.OkHttpDownloader;
 import com.squareup.picasso.Picasso;
 
@@ -14,6 +16,9 @@ import com.squareup.picasso.Picasso;
 public class GEApplication extends Application {
 
     private HttpProxyCacheServer proxy;
+    private Tracker mTracker;
+
+    private static final String PROPERTY_ID = "UA-96083093-1";
 
     @Override
     public void onCreate() {
@@ -35,6 +40,14 @@ public class GEApplication extends Application {
         return new HttpProxyCacheServer.Builder(this)
                 .maxCacheSize(1024 * 1024 * 1024)       // 1 Gb for cache
                 .build();
+    }
+
+    synchronized public Tracker getDefaultTracker() {
+        if (mTracker == null) {
+            GoogleAnalytics analytics = GoogleAnalytics.getInstance(this);
+            mTracker = analytics.newTracker(PROPERTY_ID);
+        }
+        return mTracker;
     }
 
 }

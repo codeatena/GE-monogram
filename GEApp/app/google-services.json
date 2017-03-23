@@ -1,0 +1,38 @@
+{
+  "project_info": {
+    "project_number": "133177503583",
+    "project_id": "ge-monogram"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:133177503583:android:8ba971ffd7d966e9",
+        "android_client_info": {
+          "package_name": "com.general.mediaplayer.geapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyANe7udYk3WuZHxEK1n6PiOJH0W1Ew1PBU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 2,
+          "analytics_property": {
+            "tracking_id": "UA-96083093-1"
+          }
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

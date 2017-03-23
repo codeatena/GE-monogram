@@ -7,8 +7,12 @@ import android.support.v4.content.ContextCompat;
 import android.view.View;
 import android.widget.Button;
 
+import com.general.mediaplayer.geapp.GEApplication;
 import com.general.mediaplayer.geapp.R;
 import com.general.mediaplayer.geapp.model.Constants;
+import com.general.mediaplayer.geapp.model.Global;
+import com.google.android.gms.analytics.HitBuilders;
+import com.google.android.gms.analytics.Tracker;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -57,6 +61,13 @@ public class CookingActivity extends BaseActivity {
         thirdBtn.setBackgroundColor(ContextCompat.getColor(this, R.color.transparent));
         fourthBtn.setBackgroundColor(ContextCompat.getColor(this, R.color.transparent));
 
+        Tracker t = ((GEApplication)getApplication()).getDefaultTracker();
+        t.send(new HitBuilders.EventBuilder()
+                .setCategory(Global.location)
+                .setAction("category")
+                .setLabel(Constants.professionalranges)
+                .build());
+
         Intent intent = new Intent(this , MediaListActivity.class);
         intent.putExtra(Constants.MEDIA_URL, Constants.professionalranges);
         startActivity(intent);
@@ -68,6 +79,13 @@ public class CookingActivity extends BaseActivity {
         firstBtn.setBackgroundColor(ContextCompat.getColor(this, R.color.transparent));
         thirdBtn.setBackgroundColor(ContextCompat.getColor(this, R.color.transparent));
         fourthBtn.setBackgroundColor(ContextCompat.getColor(this, R.color.transparent));
+
+        Tracker t = ((GEApplication)getApplication()).getDefaultTracker();
+        t.send(new HitBuilders.EventBuilder()
+                .setCategory(Global.location)
+                .setAction("category")
+                .setLabel(Constants.cooktops)
+                .build());
 
         Intent intent = new Intent(this , MediaListActivity.class);
         intent.putExtra(Constants.MEDIA_URL, Constants.cooktops);
@@ -81,6 +99,13 @@ public class CookingActivity extends BaseActivity {
         firstBtn.setBackgroundColor(ContextCompat.getColor(this, R.color.transparent));
         fourthBtn.setBackgroundColor(ContextCompat.getColor(this, R.color.transparent));
 
+        Tracker t = ((GEApplication)getApplication()).getDefaultTracker();
+        t.send(new HitBuilders.EventBuilder()
+                .setCategory(Global.location)
+                .setAction("category")
+                .setLabel(Constants.wallovens)
+                .build());
+
         Intent intent = new Intent(this , MediaListActivity.class);
         intent.putExtra(Constants.MEDIA_URL, Constants.wallovens);
         startActivity(intent);
@@ -92,6 +117,13 @@ public class CookingActivity extends BaseActivity {
         secondBtn.setBackgroundColor(ContextCompat.getColor(this, R.color.transparent));
         firstBtn.setBackgroundColor(ContextCompat.getColor(this, R.color.transparent));
         thirdBtn.setBackgroundColor(ContextCompat.getColor(this, R.color.transparent));
+
+        Tracker t = ((GEApplication)getApplication()).getDefaultTracker();
+        t.send(new HitBuilders.EventBuilder()
+                .setCategory(Global.location)
+                .setAction("category")
+                .setLabel(Constants.pizzaoven)
+                .build());
 
         Intent intent = new Intent(this , MediaListActivity.class);
         intent.putExtra(Constants.MEDIA_URL, Constants.pizzaoven);

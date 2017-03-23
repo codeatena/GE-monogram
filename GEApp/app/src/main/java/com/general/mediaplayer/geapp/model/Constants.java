@@ -9,6 +9,7 @@ public class Constants {
     public static final String API_DOMAIN  = "http://ec2-54-190-191-74.us-west-2.compute.amazonaws.com:8080/monogramapi-1.0-SNAPSHOT/api/";
     public static final String MEDIA_URL   = "mediaurl";
     public static final String SD_PATH = "/mnt/extSdCard/gemonogram/";
+    //public static final String SD_PATH = "/mnt/external_sd/gemonogram/";
 
     // unused API
     public static final String advantium = "advantium";
