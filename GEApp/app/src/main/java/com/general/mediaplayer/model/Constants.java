@@ -1,4 +1,4 @@
-package com.general.mediaplayer.geapp.model;
+package com.general.mediaplayer.model;
 
 /**
  * Created by mac on 15/03/2017.

@@ -1,4 +1,4 @@
-package com.general.mediaplayer.geapp.adapter;
+package com.general.mediaplayer.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -9,9 +9,9 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 
-import com.general.mediaplayer.geapp.R;
-import com.general.mediaplayer.geapp.model.Constants;
-import com.general.mediaplayer.geapp.model.MediaModel;
+import com.general.mediaplayer.R;
+import com.general.mediaplayer.model.Constants;
+import com.general.mediaplayer.model.MediaModel;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
@@ -65,7 +65,7 @@ public class MediaAdapter extends RecyclerView.Adapter{
 
             //Log.e("Missing" ,item.photoPathFromServer);
             // download fle
-            vh.progressBar.setVisibility(View.VISIBLE);
+            //vh.progressBar.setVisibility(View.VISIBLE);
             Picasso.with(mContext)
                     .load(item.photoPathFromServer)
                     .resize(1000, 1000)

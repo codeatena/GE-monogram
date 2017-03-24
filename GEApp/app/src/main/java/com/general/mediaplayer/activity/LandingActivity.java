@@ -1,4 +1,4 @@
-package com.general.mediaplayer.geapp.activity;
+package com.general.mediaplayer.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,9 +6,9 @@ import android.os.SystemClock;
 import android.view.View;
 import android.widget.ImageButton;
 
-import com.general.mediaplayer.geapp.R;
-import com.general.mediaplayer.geapp.control.APIService;
-import com.general.mediaplayer.geapp.model.Constants;
+import com.general.mediaplayer.control.APIService;
+import com.general.mediaplayer.R;
+import com.general.mediaplayer.model.Constants;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

@@ -1,11 +1,11 @@
-package com.general.mediaplayer.geapp.control;
+package com.general.mediaplayer.control;
 
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
-import com.general.mediaplayer.geapp.GEApplication;
-import com.general.mediaplayer.geapp.model.Constants;
-import com.general.mediaplayer.geapp.model.Global;
+import com.general.mediaplayer.GEApplication;
+import com.general.mediaplayer.model.Constants;
+import com.general.mediaplayer.model.Global;
 import com.google.android.gms.analytics.HitBuilders;
 import com.google.android.gms.analytics.Tracker;
 import com.google.gson.JsonArray;

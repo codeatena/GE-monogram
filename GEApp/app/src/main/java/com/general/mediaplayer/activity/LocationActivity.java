@@ -1,4 +1,4 @@
-package com.general.mediaplayer.geapp.activity;
+package com.general.mediaplayer.activity;
 
 import android.content.Intent;
 import android.graphics.Typeface;
@@ -9,8 +9,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.general.mediaplayer.geapp.R;
-import com.general.mediaplayer.geapp.model.Global;
+import com.general.mediaplayer.R;
+import com.general.mediaplayer.model.Global;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

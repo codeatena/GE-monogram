@@ -1,4 +1,4 @@
-package com.general.mediaplayer.geapp.activity;
+package com.general.mediaplayer.activity;
 
 import android.content.Intent;
 import android.media.MediaPlayer;
@@ -9,7 +9,7 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.VideoView;
 
-import com.general.mediaplayer.geapp.R;
+import com.general.mediaplayer.R;
 
 public class LoopingActivity extends AppCompatActivity {
 

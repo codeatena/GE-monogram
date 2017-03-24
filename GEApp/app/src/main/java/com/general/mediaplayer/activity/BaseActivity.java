@@ -1,4 +1,4 @@
-package com.general.mediaplayer.geapp.activity;
+package com.general.mediaplayer.activity;
 
 import android.content.Intent;
 import android.os.Bundle;

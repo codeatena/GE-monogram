@@ -1,4 +1,4 @@
-package com.general.mediaplayer.geapp.activity;
+package com.general.mediaplayer.activity;
 
 import android.net.Uri;
 import android.os.Bundle;
@@ -9,10 +9,10 @@ import com.danikula.videocache.HttpProxyCacheServer;
 import com.devbrackets.android.exomedia.listener.OnCompletionListener;
 import com.devbrackets.android.exomedia.listener.OnPreparedListener;
 import com.devbrackets.android.exomedia.ui.widget.EMVideoView;
-import com.general.mediaplayer.geapp.GEApplication;
-import com.general.mediaplayer.geapp.R;
-import com.general.mediaplayer.geapp.model.Constants;
-import com.general.mediaplayer.geapp.model.MediaModel;
+import com.general.mediaplayer.GEApplication;
+import com.general.mediaplayer.R;
+import com.general.mediaplayer.model.Constants;
+import com.general.mediaplayer.model.MediaModel;
 import com.github.chrisbanes.photoview.PhotoView;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;

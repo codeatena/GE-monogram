@@ -1,4 +1,4 @@
-package com.general.mediaplayer.geapp.activity;
+package com.general.mediaplayer.activity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -9,14 +9,14 @@ import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.util.Log;
 import android.view.View;
 
-import com.general.mediaplayer.geapp.R;
-import com.general.mediaplayer.geapp.adapter.MediaAdapter;
-import com.general.mediaplayer.geapp.control.APICallback;
-import com.general.mediaplayer.geapp.control.APIService;
-import com.general.mediaplayer.geapp.model.Constants;
-import com.general.mediaplayer.geapp.model.MediaModel;
-import com.general.mediaplayer.geapp.model.ParseJson;
-import com.general.mediaplayer.geapp.view.RecyclerItemClickListener;
+import com.general.mediaplayer.adapter.MediaAdapter;
+import com.general.mediaplayer.control.APICallback;
+import com.general.mediaplayer.control.APIService;
+import com.general.mediaplayer.R;
+import com.general.mediaplayer.model.Constants;
+import com.general.mediaplayer.model.MediaModel;
+import com.general.mediaplayer.model.ParseJson;
+import com.general.mediaplayer.view.RecyclerItemClickListener;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 

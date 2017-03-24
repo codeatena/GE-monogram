@@ -9,7 +9,7 @@
     android:paddingLeft="@dimen/location_margin"
     android:paddingRight="@dimen/location_margin"
 
-    tools:context="com.general.mediaplayer.geapp.activity.LocationActivity">
+    tools:context="com.general.mediaplayer.activity.LocationActivity">
 
     <EditText
         android:id="@+id/location_edit"

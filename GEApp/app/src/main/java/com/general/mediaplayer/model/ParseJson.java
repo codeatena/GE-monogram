@@ -1,4 +1,4 @@
-package com.general.mediaplayer.geapp.model;
+package com.general.mediaplayer.model;
 
 import com.google.gson.JsonObject;
 

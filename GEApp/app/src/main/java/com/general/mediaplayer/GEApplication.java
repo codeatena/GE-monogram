@@ -1,4 +1,4 @@
-package com.general.mediaplayer.geapp;
+package com.general.mediaplayer;
 
 import android.app.Application;
 import android.content.Context;
