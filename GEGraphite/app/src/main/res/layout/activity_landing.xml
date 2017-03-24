@@ -56,7 +56,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1.5" android:weightSum="5"
+            android:layout_weight="1.5" android:weightSum="4.6"
             android:gravity="center">
 
             <ImageButton
@@ -69,8 +69,10 @@
                 android:layout_marginTop="10dp"
                 android:layout_weight="1"
                 android:background="@null"
-                android:scaleType="fitXY"
-                android:src="@drawable/sweet_rewards_button" />
+                android:scaleType="fitCenter"
+                android:adjustViewBounds="true"
+                android:src="@drawable/sweet_rewards_button"
+                />
 
             <ImageButton
                 android:id="@+id/experiencemonogram_btn"
@@ -83,7 +85,8 @@
                 android:layout_weight="1"
                 android:background="@null"
                 android:onClick="onExperienceMonogram"
-                android:scaleType="fitXY"
+                android:scaleType="fitCenter"
+                android:adjustViewBounds="true"
                 android:src="@drawable/experience_monogram_button" />
 
             <ImageButton
@@ -96,7 +99,8 @@
                 android:layout_marginTop="10dp"
                 android:layout_weight="1"
                 android:background="@null"
-                android:scaleType="fitXY"
+                android:scaleType="fitCenter"
+                android:adjustViewBounds="true"
                 android:src="@drawable/inspired_kitchens" />
 
             <ImageButton
@@ -109,7 +113,8 @@
                 android:layout_marginTop="10dp"
                 android:layout_weight="1"
                 android:background="@null"
-                android:scaleType="fitXY"
+                android:scaleType="fitCenter"
+                android:adjustViewBounds="true"
                 android:src="@drawable/graphite_button"
                 android:onClick="onGraphite"
                 />
