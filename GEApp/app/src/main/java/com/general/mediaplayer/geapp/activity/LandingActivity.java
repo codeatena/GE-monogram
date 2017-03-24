@@ -6,12 +6,9 @@ import android.os.SystemClock;
 import android.view.View;
 import android.widget.ImageButton;
 
-import com.general.mediaplayer.geapp.GEApplication;
 import com.general.mediaplayer.geapp.R;
+import com.general.mediaplayer.geapp.control.APIService;
 import com.general.mediaplayer.geapp.model.Constants;
-import com.general.mediaplayer.geapp.model.Global;
-import com.google.android.gms.analytics.HitBuilders;
-import com.google.android.gms.analytics.Tracker;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -59,12 +56,6 @@ public class LandingActivity extends BaseActivity implements View.OnClickListene
 
     public void onCooking(View view)
     {
-        Tracker t = ((GEApplication)getApplication()).getDefaultTracker();
-        t.send(new HitBuilders.EventBuilder()
-                .setCategory(Global.location)
-                .setAction("category")
-                .setLabel("cooking")
-                .build());
 
         Intent intent =  new Intent(this , CookingActivity.class);
         startActivity(intent);
@@ -72,26 +63,12 @@ public class LandingActivity extends BaseActivity implements View.OnClickListene
 
     public void onCleaning(View view)
     {
-        Tracker t = ((GEApplication)getApplication()).getDefaultTracker();
-        t.send(new HitBuilders.EventBuilder()
-                .setCategory(Global.location)
-                .setAction("category")
-                .setLabel("cleaning")
-                .build());
-
         Intent intent =  new Intent(this , CleaningActivity.class);
         startActivity(intent);
     }
 
     public void onRefrigeration(View view)
     {
-        Tracker t = ((GEApplication)getApplication()).getDefaultTracker();
-        t.send(new HitBuilders.EventBuilder()
-                .setCategory(Global.location)
-                .setAction("category")
-                .setLabel("refrigeration")
-                .build());
-
         Intent intent =  new Intent(this , RefrigerationActivity.class);
         startActivity(intent);
     }
@@ -105,6 +82,8 @@ public class LandingActivity extends BaseActivity implements View.OnClickListene
 
     public void onExperienceMonogram(View view)
     {
+        APIService.trakCategory(this ,Constants.experiencemonogram);
+
         Intent intent =  new Intent(this , MediaListActivity.class);
         intent.putExtra(Constants.MEDIA_URL, Constants.experiencemonogram);
         startActivity(intent);
@@ -136,6 +115,8 @@ public class LandingActivity extends BaseActivity implements View.OnClickListene
 
         if (v == sweetrewardBtn)
         {
+            APIService.trakCategory(this ,Constants.sweetreward);
+
             Intent intent =  new Intent(this , MediaListActivity.class);
             intent.putExtra(Constants.MEDIA_URL, Constants.sweetreward);
             startActivity(intent);
@@ -143,6 +124,8 @@ public class LandingActivity extends BaseActivity implements View.OnClickListene
 
         if (v == inspiredkitchenBtn)
         {
+            APIService.trakCategory(this ,Constants.inspiredkitchen);
+
             Intent intent =  new Intent(this , MediaListActivity.class);
             intent.putExtra(Constants.MEDIA_URL, Constants.inspiredkitchen);
             startActivity(intent);

@@ -143,7 +143,7 @@ public class APIService {
         return subscription;
     }
 
-    public void trakCategory(AppCompatActivity activity ,String category)
+    public static void trakCategory(AppCompatActivity activity ,String category)
     {
         Tracker t = ((GEApplication)activity.getApplication()).getDefaultTracker();
         t.send(new HitBuilders.EventBuilder()

@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.general.mediaplayer.geapp.R;
+import com.general.mediaplayer.geapp.control.APIService;
 import com.general.mediaplayer.geapp.model.Constants;
 
 import butterknife.BindView;
@@ -70,6 +71,8 @@ public class RefrigerationActivity extends BaseActivity {
         hideAllButtons();
         firstBtn.setBackgroundColor(ContextCompat.getColor(this, R.color.colorRefrigeration));
 
+        APIService.trakCategory(this ,Constants.fullsizerefrigeration);
+
         Intent intent = new Intent(this , MediaListActivity.class);
         intent.putExtra(Constants.MEDIA_URL, Constants.fullsizerefrigeration);
         startActivity(intent);
@@ -79,6 +82,8 @@ public class RefrigerationActivity extends BaseActivity {
     {
         hideAllButtons();
         secondBtn.setBackgroundColor(ContextCompat.getColor(this, R.color.colorRefrigeration));
+
+        APIService.trakCategory(this ,Constants.builtinrefrigeration);
 
         Intent intent = new Intent(this , MediaListActivity.class);
         intent.putExtra(Constants.MEDIA_URL, Constants.builtinrefrigeration);
@@ -90,6 +95,8 @@ public class RefrigerationActivity extends BaseActivity {
         hideAllButtons();
         thirdBtn.setBackgroundColor(ContextCompat.getColor(this, R.color.colorRefrigeration));
 
+        APIService.trakCategory(this ,Constants.freestanding);
+
         Intent intent = new Intent(this , MediaListActivity.class);
         intent.putExtra(Constants.MEDIA_URL, Constants.freestanding);
         startActivity(intent);
@@ -99,6 +106,8 @@ public class RefrigerationActivity extends BaseActivity {
     {
         hideAllButtons();
         fourthBtn.setBackgroundColor(ContextCompat.getColor(this, R.color.colorRefrigeration));
+
+        APIService.trakCategory(this ,Constants.bottomfreezer);
 
         Intent intent = new Intent(this , MediaListActivity.class);
         intent.putExtra(Constants.MEDIA_URL, Constants.bottomfreezer);
@@ -110,6 +119,8 @@ public class RefrigerationActivity extends BaseActivity {
         hideAllButtons();
         fifthBtn.setBackgroundColor(ContextCompat.getColor(this, R.color.colorRefrigeration));
 
+        APIService.trakCategory(this ,Constants.frenchdoor);
+
         Intent intent = new Intent(this , MediaListActivity.class);
         intent.putExtra(Constants.MEDIA_URL, Constants.frenchdoor);
         startActivity(intent);
@@ -119,6 +130,8 @@ public class RefrigerationActivity extends BaseActivity {
     {
         hideAllButtons();
         sixthBtn.setBackgroundColor(ContextCompat.getColor(this, R.color.colorRefrigeration));
+
+        APIService.trakCategory(this ,Constants.integratedrefrigeration);
 
         Intent intent = new Intent(this , MediaListActivity.class);
         intent.putExtra(Constants.MEDIA_URL, Constants.integratedrefrigeration);
@@ -130,6 +143,8 @@ public class RefrigerationActivity extends BaseActivity {
         hideAllButtons();
         seventhBtn.setBackgroundColor(ContextCompat.getColor(this, R.color.colorRefrigeration));
 
+        APIService.trakCategory(this ,Constants.sidebyside);
+
         Intent intent = new Intent(this , MediaListActivity.class);
         intent.putExtra(Constants.MEDIA_URL, Constants.sidebyside);
         startActivity(intent);
@@ -139,6 +154,8 @@ public class RefrigerationActivity extends BaseActivity {
     {
         hideAllButtons();
         eightthBtn.setBackgroundColor(ContextCompat.getColor(this, R.color.colorRefrigeration));
+
+        APIService.trakCategory(this ,Constants.selectionguide);
 
         Intent intent = new Intent(this , MediaListActivity.class);
         intent.putExtra(Constants.MEDIA_URL, Constants.selectionguide);
