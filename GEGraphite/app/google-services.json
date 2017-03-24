@@ -1,0 +1,38 @@
+{
+  "project_info": {
+    "project_number": "906603468782",
+    "project_id": "gegraphite"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:906603468782:android:0d5202c2fac46491",
+        "android_client_info": {
+          "package_name": "com.general.mediaplayer.gegraphite"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAYBl4FWEH06fg0zKhz7QjjG3oK2BbyYR8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 2,
+          "analytics_property": {
+            "tracking_id": "UA-96083093-1"
+          }
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#3F51B5</color>
+
+    <color name="colorRefrigeration">#5bccca</color>
+    <color name="colorCleaning">#e66e32</color>
+    <color name="colorCooking">#c74430</color>
+    <color name="transparent">#00000000</color>
+</resources>

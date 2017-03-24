@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.general.mediaplayer.gegraphite.activity.CleaningActivity">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/cleaning_background"
+        android:scaleType="fitXY" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:weightSum="4">
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1.35">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+
+            <Button
+                android:id="@+id/cleaningfirst_btn"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/category_height"
+                android:background="@android:color/transparent"
+                android:text="@string/cleaning_btn1"
+                android:theme="@style/category_button"
+                android:onClick="onFirstClick"/>
+
+            <Button
+                android:id="@+id/cleaningsecond_btn"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/category_height"
+                android:background="@android:color/transparent"
+                android:text="@string/cleaning_btn2"
+                android:theme="@style/category_button"
+                android:onClick="onSecondClick"/>
+
+            <Button
+                android:id="@+id/cleaningthird_btn"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/category_height"
+                android:background="@android:color/transparent"
+                android:text="@string/cleaning_btn3"
+                android:theme="@style/category_button"
+                android:onClick="onThirdClick"/>
+
+            <Button
+                android:id="@+id/cleaningfourth_btn"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/category_height"
+                android:background="@android:color/transparent"
+                android:text="@string/cleaning_btn4"
+                android:theme="@style/category_button"
+                android:onClick="onFourthClick"/>
+
+            <Button
+                android:id="@+id/cleaningfifth_btn"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/category_height"
+                android:background="@android:color/transparent"
+                android:text="@string/cleaning_btn5"
+                android:theme="@style/category_button"
+                android:onClick="onFifthClick"/>
+
+        </LinearLayout>
+    </ScrollView>
+    </LinearLayout>
+    <Button
+        android:layout_width="80dp"
+        android:layout_height="45dp"
+        android:textSize="15sp"
+        android:background="@drawable/back_button"
+        android:textColor="@android:color/darker_gray"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="20dp"
+        android:onClick="onBack"/>
+
+</RelativeLayout>

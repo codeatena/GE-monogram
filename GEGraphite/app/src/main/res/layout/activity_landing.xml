@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.general.mediaplayer.gegraphite.activity.LandingActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="9.5">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="6" android:weightSum="2">
+
+            <ImageButton
+                android:id="@+id/refrigeration_btn"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@null"
+                android:onClick="onRefrigeration"
+                android:scaleType="fitXY"
+                android:src="@drawable/refridgeration" />
+
+            <ImageButton
+                android:id="@+id/cooking_btn"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@null"
+                android:onClick="onCooking"
+                android:scaleType="fitXY"
+                android:src="@drawable/cooking" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2">
+
+            <ImageButton
+                android:id="@+id/cleaning_btn"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@null"
+                android:onClick="onCleaning"
+                android:scaleType="fitXY"
+                android:src="@drawable/cleaning" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1.5" android:weightSum="5"
+            android:gravity="center">
+
+            <ImageButton
+                android:id="@+id/sweetreward_btn"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                android:background="@null"
+                android:scaleType="fitXY"
+                android:src="@drawable/sweet_rewards_button" />
+
+            <ImageButton
+                android:id="@+id/experiencemonogram_btn"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                android:background="@null"
+                android:onClick="onExperienceMonogram"
+                android:scaleType="fitXY"
+                android:src="@drawable/experience_monogram_button" />
+
+            <ImageButton
+                android:id="@+id/inspiredkitchen_btn"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                android:background="@null"
+                android:scaleType="fitXY"
+                android:src="@drawable/inspired_kitchens" />
+
+            <ImageButton
+                android:id="@+id/graphite_btn"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                android:background="@null"
+                android:scaleType="fitXY"
+                android:src="@drawable/graphite_button"
+                android:onClick="onGraphite"
+                />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">GEGraphite</string>
+
+    <string name="cleaning_btn1">DISHWASHERS</string>
+    <string name="cleaning_btn2">DISHWASHERS &amp; COMPACTORS</string>
+    <string name="cleaning_btn3">ENERGY STAR DISHWASHERS</string>
+    <string name="cleaning_btn4">UNDER COUNTER</string>
+    <string name="cleaning_btn5">SELECTION GUIDE</string>
+
+    <string name="cooking_btn1">PROFESSIONAL RANGES</string>
+    <string name="cooking_btn2">RANGETOPS  &amp; COOKTOPS</string>
+    <string name="cooking_btn3">WALLOVENS</string>
+    <string name="cooking_btn4">PIZZA OVEN</string>
+    <string name="cooking_btn5">ADVANTIUM</string>
+    <string name="cooking_btn6">HOOD</string>
+    <string name="cooking_btn7">SELECTION GUIDE</string>
+
+    <string name="refrigeration_btn1">FULLSIZE</string>
+    <string name="refrigeration_btn2">BUILT IN</string>
+    <string name="refrigeration_btn3">FREE STANDING</string>
+    <string name="refrigeration_btn4">BOTTOM FREEZER</string>
+    <string name="refrigeration_btn5">FRENCH DOOR</string>
+    <string name="refrigeration_btn6">INTEGRATED</string>
+    <string name="refrigeration_btn7">SIDEBYSIDE</string>
+    <string name="refrigeration_btn8">SELECTION GUIDE</string>
+
+</resources>

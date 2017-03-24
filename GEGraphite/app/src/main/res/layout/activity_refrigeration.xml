@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.general.mediaplayer.gegraphite.activity.RefrigerationActivity">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/refridgeration_background"
+        android:scaleType="fitXY" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:weightSum="4">
+
+        <ScrollView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.35">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/refrigerationfirst_btn"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/category_height"
+                android:background="@android:color/transparent"
+                android:text="@string/refrigeration_btn1"
+                android:theme="@style/category_button"
+                android:onClick="onFirstClick"/>
+
+            <Button
+                android:id="@+id/refrigerationsecond_btn"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/category_height"
+                android:background="@android:color/transparent"
+                android:text="@string/refrigeration_btn2"
+                android:theme="@style/category_button"
+                android:onClick="onSecondClick"/>
+
+            <Button
+                android:id="@+id/refrigerationthird_btn"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/category_height"
+                android:background="@android:color/transparent"
+                android:text="@string/refrigeration_btn3"
+                android:theme="@style/category_button"
+                android:onClick="onThirdClick"/>
+
+            <Button
+                android:id="@+id/refrigerationfourth_btn"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/category_height"
+                android:background="@android:color/transparent"
+                android:text="@string/refrigeration_btn4"
+                android:theme="@style/category_button"
+                android:onClick="onFourthClick"/>
+
+            <Button
+                android:id="@+id/refrigerationfifth_btn"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/category_height"
+                android:background="@android:color/transparent"
+                android:text="@string/refrigeration_btn5"
+                android:theme="@style/category_button"
+                android:onClick="onFifthClick"/>
+
+            <Button
+                android:id="@+id/refrigerationsixth_btn"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/category_height"
+                android:background="@android:color/transparent"
+                android:text="@string/refrigeration_btn6"
+                android:theme="@style/category_button"
+                android:onClick="onSixthClick"/>
+
+            <Button
+                android:id="@+id/refrigerationseventh_btn"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/category_height"
+                android:background="@android:color/transparent"
+                android:text="@string/refrigeration_btn7"
+                android:theme="@style/category_button"
+                android:onClick="onSeventhClick"/>
+
+            <Button
+                android:id="@+id/refrigerationeightth_btn"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/category_height"
+                android:background="@android:color/transparent"
+                android:text="@string/refrigeration_btn8"
+                android:theme="@style/category_button"
+                android:onClick="onEighthClick"/>
+
+        </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+
+    <Button
+        android:layout_width="80dp"
+        android:layout_height="45dp"
+        android:textSize="15sp"
+        android:background="@drawable/back_button"
+        android:textColor="@android:color/darker_gray"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="20dp"
+        android:onClick="onBack"/>
+
+</RelativeLayout>

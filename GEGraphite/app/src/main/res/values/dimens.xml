@@ -1,0 +1,9 @@
+<resources>
+
+    <dimen name="textsize_30">30sp</dimen>
+    <dimen name="location_margin">100dp</dimen>
+    <dimen name="category_margin">20dp</dimen>
+
+    <dimen name="category_height">200dp</dimen>
+
+</resources>
