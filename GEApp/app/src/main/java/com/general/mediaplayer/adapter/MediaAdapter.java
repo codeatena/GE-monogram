@@ -86,6 +86,8 @@ public class MediaAdapter extends RecyclerView.Adapter{
 
         if (!item.bIsPhoto)
             vh.playImageView.setVisibility(View.VISIBLE);
+        else
+            vh.playImageView.setVisibility(View.INVISIBLE);
     }
 
     @Override

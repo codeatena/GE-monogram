@@ -41,7 +41,7 @@ public class CleaningActivity extends BaseActivity {
         setContentView(R.layout.activity_cleaning);
         ButterKnife.bind(this);
 
-        Typeface copperplateGothicLight = Typeface.createFromAsset(getAssets(), "fonts/Gotham Medium.otf");
+        Typeface copperplateGothicLight = Typeface.createFromAsset(getAssets(), "fonts/Gotham Light.otf");
         firstBtn.setTypeface(copperplateGothicLight);
         secondBtn.setTypeface(copperplateGothicLight);
         thirdBtn.setTypeface(copperplateGothicLight);
