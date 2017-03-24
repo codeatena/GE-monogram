@@ -14,22 +14,23 @@ public class Constants {
     // unused API
     public static final String advantium = "advantium";
     public static final String bottomfreezer = "bottomfreezer";
+    public static final String frenchdoor = "frenchdoor";
+    public static final String hoods = "hoods";
+    public static final String integratedrefrigeration = "integratedrefrigeration";
+    public static final String selectionguide = "selection_guide";
+    public static final String undercounter = "undercounter";
+    public static final String sidebyside = "sidebyside";
+
     public static final String catalogue = "catalogue";
     public static final String cleaning = "cleaning";
     public static final String cooking = "cooking";
-    public static final String frenchdoor = "frenchdoor";
     public static final String graphite = "graphite";
-    public static final String hoods = "hoods";
-    public static final String integratedrefrigeration = "integratedrefrigeration";
     public static final String main = "main";
     public static final String monogram = "monogram";
     public static final String monogramluxury = "monogramluxury";
     public static final String photogallery = "photogallery";
     public static final String refrigeration = "refrigeration";
-    public static final String selectionguide = "selectionguide";
-    public static final String undercounter = "undercounter";
     public static final String videogallery = "videogallery";
-    public static final String sidebyside = "sidebyside";
     public static final String landing = "landing";
     public static final String bottomtab = "bottomtab";
 
@@ -47,5 +48,4 @@ public class Constants {
     public static final String sweetreward = "sweetreward";
     public static final String wallovens = "wallovens";
     public static final String pizzaoven = "pizzaoven";
-
 }

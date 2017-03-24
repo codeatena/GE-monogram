@@ -1,8 +1,13 @@
 package com.general.mediaplayer.geapp.control;
 
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
+import com.general.mediaplayer.geapp.GEApplication;
 import com.general.mediaplayer.geapp.model.Constants;
+import com.general.mediaplayer.geapp.model.Global;
+import com.google.android.gms.analytics.HitBuilders;
+import com.google.android.gms.analytics.Tracker;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
@@ -136,5 +141,15 @@ public class APIService {
                 });
 
         return subscription;
+    }
+
+    public void trakCategory(AppCompatActivity activity ,String category)
+    {
+        Tracker t = ((GEApplication)activity.getApplication()).getDefaultTracker();
+        t.send(new HitBuilders.EventBuilder()
+                .setCategory(Global.location)
+                .setAction("category")
+                .setLabel(category)
+                .build());
     }
 }

@@ -2,5 +2,6 @@
 
     <dimen name="textsize_30">26sp</dimen>
     <dimen name="location_margin">150dp</dimen>
+    <dimen name="category_margin">20dp</dimen>
 
 </resources>

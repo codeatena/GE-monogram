@@ -62,6 +62,8 @@ public class MediaAdapter extends RecyclerView.Adapter{
         }
         else
         {
+
+            //Log.e("Missing" ,item.photoPathFromServer);
             // download fle
             vh.progressBar.setVisibility(View.VISIBLE);
             Picasso.with(mContext)

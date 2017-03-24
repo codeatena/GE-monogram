@@ -7,12 +7,8 @@ import android.support.v4.content.ContextCompat;
 import android.view.View;
 import android.widget.Button;
 
-import com.general.mediaplayer.geapp.GEApplication;
 import com.general.mediaplayer.geapp.R;
 import com.general.mediaplayer.geapp.model.Constants;
-import com.general.mediaplayer.geapp.model.Global;
-import com.google.android.gms.analytics.HitBuilders;
-import com.google.android.gms.analytics.Tracker;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -31,6 +27,16 @@ public class CookingActivity extends BaseActivity {
     @BindView(R.id.cookingfourth_btn)
     Button fourthBtn;
 
+    @BindView(R.id.cookingfifth_btn)
+    Button fifthBtn;
+
+    @BindView(R.id.cookingsixth_btn)
+    Button sixthBtn;
+
+    @BindView(R.id.cookingseventh_btn)
+    Button seventhBtn;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,6 +52,9 @@ public class CookingActivity extends BaseActivity {
         secondBtn.setTypeface(copperplateGothicLight);
         thirdBtn.setTypeface(copperplateGothicLight);
         fourthBtn.setTypeface(copperplateGothicLight);
+        fifthBtn.setTypeface(copperplateGothicLight);
+        sixthBtn.setTypeface(copperplateGothicLight);
+        seventhBtn.setTypeface(copperplateGothicLight);
 
     }
 
@@ -56,17 +65,8 @@ public class CookingActivity extends BaseActivity {
 
     public void onFirstClick(View view)
     {
+        hideAllButtons();
         firstBtn.setBackgroundColor(ContextCompat.getColor(this, R.color.colorCooking));
-        secondBtn.setBackgroundColor(ContextCompat.getColor(this, R.color.transparent));
-        thirdBtn.setBackgroundColor(ContextCompat.getColor(this, R.color.transparent));
-        fourthBtn.setBackgroundColor(ContextCompat.getColor(this, R.color.transparent));
-
-        Tracker t = ((GEApplication)getApplication()).getDefaultTracker();
-        t.send(new HitBuilders.EventBuilder()
-                .setCategory(Global.location)
-                .setAction("category")
-                .setLabel(Constants.professionalranges)
-                .build());
 
         Intent intent = new Intent(this , MediaListActivity.class);
         intent.putExtra(Constants.MEDIA_URL, Constants.professionalranges);
@@ -75,17 +75,8 @@ public class CookingActivity extends BaseActivity {
 
     public void onSecondClick(View view)
     {
+        hideAllButtons();
         secondBtn.setBackgroundColor(ContextCompat.getColor(this, R.color.colorCooking));
-        firstBtn.setBackgroundColor(ContextCompat.getColor(this, R.color.transparent));
-        thirdBtn.setBackgroundColor(ContextCompat.getColor(this, R.color.transparent));
-        fourthBtn.setBackgroundColor(ContextCompat.getColor(this, R.color.transparent));
-
-        Tracker t = ((GEApplication)getApplication()).getDefaultTracker();
-        t.send(new HitBuilders.EventBuilder()
-                .setCategory(Global.location)
-                .setAction("category")
-                .setLabel(Constants.cooktops)
-                .build());
 
         Intent intent = new Intent(this , MediaListActivity.class);
         intent.putExtra(Constants.MEDIA_URL, Constants.cooktops);
@@ -94,17 +85,9 @@ public class CookingActivity extends BaseActivity {
 
     public void onThirdClick(View view)
     {
-        thirdBtn.setBackgroundColor(ContextCompat.getColor(this, R.color.colorCooking));
-        secondBtn.setBackgroundColor(ContextCompat.getColor(this, R.color.transparent));
-        firstBtn.setBackgroundColor(ContextCompat.getColor(this, R.color.transparent));
-        fourthBtn.setBackgroundColor(ContextCompat.getColor(this, R.color.transparent));
 
-        Tracker t = ((GEApplication)getApplication()).getDefaultTracker();
-        t.send(new HitBuilders.EventBuilder()
-                .setCategory(Global.location)
-                .setAction("category")
-                .setLabel(Constants.wallovens)
-                .build());
+        hideAllButtons();
+        thirdBtn.setBackgroundColor(ContextCompat.getColor(this, R.color.colorCooking));
 
         Intent intent = new Intent(this , MediaListActivity.class);
         intent.putExtra(Constants.MEDIA_URL, Constants.wallovens);
@@ -113,20 +96,52 @@ public class CookingActivity extends BaseActivity {
 
     public void onFourthClick(View view)
     {
+        hideAllButtons();
         fourthBtn.setBackgroundColor(ContextCompat.getColor(this, R.color.colorCooking));
-        secondBtn.setBackgroundColor(ContextCompat.getColor(this, R.color.transparent));
-        firstBtn.setBackgroundColor(ContextCompat.getColor(this, R.color.transparent));
-        thirdBtn.setBackgroundColor(ContextCompat.getColor(this, R.color.transparent));
-
-        Tracker t = ((GEApplication)getApplication()).getDefaultTracker();
-        t.send(new HitBuilders.EventBuilder()
-                .setCategory(Global.location)
-                .setAction("category")
-                .setLabel(Constants.pizzaoven)
-                .build());
 
         Intent intent = new Intent(this , MediaListActivity.class);
         intent.putExtra(Constants.MEDIA_URL, Constants.pizzaoven);
         startActivity(intent);
+    }
+
+    public void onFifthClick(View view)
+    {
+        hideAllButtons();
+        fifthBtn.setBackgroundColor(ContextCompat.getColor(this, R.color.colorCooking));
+
+        Intent intent = new Intent(this , MediaListActivity.class);
+        intent.putExtra(Constants.MEDIA_URL, Constants.advantium);
+        startActivity(intent);
+    }
+
+    public void onSixthClick(View view)
+    {
+        hideAllButtons();
+        sixthBtn.setBackgroundColor(ContextCompat.getColor(this, R.color.colorCooking));
+
+        Intent intent = new Intent(this , MediaListActivity.class);
+        intent.putExtra(Constants.MEDIA_URL, Constants.hoods);
+        startActivity(intent);
+    }
+
+    public void onSeventhClick(View view)
+    {
+        hideAllButtons();
+        seventhBtn.setBackgroundColor(ContextCompat.getColor(this, R.color.colorCooking));
+
+        Intent intent = new Intent(this , MediaListActivity.class);
+        intent.putExtra(Constants.MEDIA_URL, Constants.selectionguide);
+        startActivity(intent);
+    }
+
+    private void hideAllButtons()
+    {
+        firstBtn.setBackgroundColor(ContextCompat.getColor(this, R.color.transparent));
+        secondBtn.setBackgroundColor(ContextCompat.getColor(this, R.color.transparent));
+        thirdBtn.setBackgroundColor(ContextCompat.getColor(this, R.color.transparent));
+        fourthBtn.setBackgroundColor(ContextCompat.getColor(this, R.color.transparent));
+        fifthBtn.setBackgroundColor(ContextCompat.getColor(this, R.color.transparent));
+        sixthBtn.setBackgroundColor(ContextCompat.getColor(this, R.color.transparent));
+        seventhBtn.setBackgroundColor(ContextCompat.getColor(this, R.color.transparent));
     }
 }

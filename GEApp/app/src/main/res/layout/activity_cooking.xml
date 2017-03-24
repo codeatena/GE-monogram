@@ -17,54 +17,85 @@
         android:layout_height="match_parent"
         android:weightSum="4">
 
-        <LinearLayout
+        <ScrollView
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1.35"
-            android:orientation="vertical"
-            android:weightSum="4">
+            android:layout_weight="1.35">
 
-            <Button
-                android:id="@+id/cookingfirst_btn"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:background="@android:color/transparent"
-                android:text="@string/cooking_firstbtn"
-                android:textSize="@dimen/textsize_30"
-                android:onClick="onFirstClick"/>
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:weightSum="4">
 
-            <Button
-                android:id="@+id/cookingsecond_btn"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:background="@android:color/transparent"
-                android:text="@string/cooking_secondbtn"
-                android:textSize="@dimen/textsize_30"
-                android:onClick="onSecondClick"/>
+                <Button
+                    android:id="@+id/cookingfirst_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:theme="@style/category_button"
+                    android:text="@string/cooking_btn1"
+                    android:background="@color/transparent"
+                    android:onClick="onFirstClick"
+                    />
 
-            <Button
-                android:id="@+id/cookingthird_btn"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:background="@android:color/transparent"
-                android:text="@string/cooking_thirdbtn"
-                android:textSize="@dimen/textsize_30"
-                android:onClick="onThirdClick"/>
+                <Button
+                    android:id="@+id/cookingsecond_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:text="@string/cooking_btn2"
+                    android:theme="@style/category_button"
+                    android:onClick="onSecondClick"/>
 
-            <Button
-                android:id="@+id/cookingfourth_btn"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:background="@android:color/transparent"
-                android:text="@string/cooking_fourthbtn"
-                android:textSize="@dimen/textsize_30"
-                android:onClick="onFourthClick"/>
+                <Button
+                    android:id="@+id/cookingthird_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:text="@string/cooking_btn3"
+                    android:theme="@style/category_button"
+                    android:onClick="onThirdClick"/>
 
-        </LinearLayout>
+                <Button
+                    android:id="@+id/cookingfourth_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:text="@string/cooking_btn4"
+                    android:theme="@style/category_button"
+                    android:onClick="onFourthClick"/>
+
+                <Button
+                    android:id="@+id/cookingfifth_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:text="@string/cooking_btn5"
+                    android:theme="@style/category_button"
+                    android:onClick="onFifthClick"/>
+
+                <Button
+                    android:id="@+id/cookingsixth_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:text="@string/cooking_btn6"
+                    android:theme="@style/category_button"
+                    android:onClick="onSixthClick"/>
+
+                <Button
+                    android:id="@+id/cookingseventh_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:text="@string/cooking_btn7"
+                    android:theme="@style/category_button"
+                    android:onClick="onSeventhClick"/>
+
+            </LinearLayout>
+
+        </ScrollView>
+
     </LinearLayout>
 
     <Button

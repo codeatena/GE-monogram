@@ -8,4 +8,11 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+
+    <style name="category_button">
+        <item name="android:textSize">@dimen/textsize_30</item>
+        <item name="android:paddingTop">@dimen/category_margin</item>
+        <item name="android:paddingBottom">@dimen/category_margin</item>
+    </style>
+
 </resources>
