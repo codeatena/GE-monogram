@@ -6,6 +6,7 @@
     <string name="cleaning_btn3">ENERGY STAR DISHWASHERS</string>
     <string name="cleaning_btn4">UNDER COUNTER</string>
     <string name="cleaning_btn5">SELECTION GUIDE</string>
+    <string name="cleaning_btn6">CONNECTED</string>
 
     <string name="cooking_btn1">PROFESSIONAL RANGES</string>
     <string name="cooking_btn2">RANGETOPS  &amp; COOKTOPS</string>
@@ -14,6 +15,7 @@
     <string name="cooking_btn5">ADVANTIUM</string>
     <string name="cooking_btn6">HOOD</string>
     <string name="cooking_btn7">SELECTION GUIDE</string>
+    <string name="cooking_btn8">CONNECTED</string>
 
     <string name="refrigeration_btn1">FULLSIZE</string>
     <string name="refrigeration_btn2">BUILT IN</string>
@@ -23,5 +25,6 @@
     <string name="refrigeration_btn6">INTEGRATED</string>
     <string name="refrigeration_btn7">SIDEBYSIDE</string>
     <string name="refrigeration_btn8">SELECTION GUIDE</string>
+    <string name="refrigeration_btn9">CONNECTED</string>
 
 </resources>

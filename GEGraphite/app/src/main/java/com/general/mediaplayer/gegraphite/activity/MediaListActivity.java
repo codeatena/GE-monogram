@@ -93,46 +93,47 @@ public class MediaListActivity extends BaseActivity {
                 pd.dismiss();
 
                 String photoPath = ParseJson.getPhotoPath(jsonObject);
-                JsonArray jsonArray = jsonObject.get("api").getAsJsonObject().get("photos").getAsJsonObject().get("photo").getAsJsonArray();
-                for (int i = 0 ; i < jsonArray.size() ; i ++)
+                JsonArray jsonArray;
+                if (jsonObject.get("api").getAsJsonObject().get("photos") instanceof JsonObject)
                 {
-                    //Log.d(TAG ,jsonArray.get(i).getAsString());
-                    String encodeStr = Uri.encode(jsonArray.get(i).getAsString());
-                    MediaModel model = new MediaModel(photoPath + jsonArray.get(i).getAsString() , true);
-                    model.photoPathFromServer =  ParseJson.getPhotoPathServer(jsonObject) + encodeStr;
-                    // check if exist photo file in SD card
-                    File file = new File(Constants.SD_PATH  + model.photoPathFromSD);
-                    if(!file.exists())
-                        model.isExistPhoto = false;
+                    JsonObject jsonObject1 = jsonObject.get("api").getAsJsonObject().get("photos").getAsJsonObject();
+                    if (jsonObject1.get("photo") instanceof JsonArray)
+                    {
+                        jsonArray = jsonObject1.get("photo").getAsJsonArray();
+                        for (int i = 0 ; i < jsonArray.size() ; i ++)
+                        {
+                            String photo = jsonArray.get(i).getAsString();
+                            getPhoto(photo ,photoPath ,jsonObject);
+                        }
+                    }
                     else
-                        model.isExistPhoto = true;
+                    {
+                        String photo = jsonObject1.get("photo").getAsString();
+                        getPhoto(photo ,photoPath ,jsonObject);
+                    }
 
-                    adapter.addMedia(model);
+
                 }
 
                 String videoPath = ParseJson.getVideoPath(jsonObject);
                 if (jsonObject.get("api").getAsJsonObject().get("videos") instanceof JsonObject)
                 {
-                    jsonArray = jsonObject.get("api").getAsJsonObject().get("videos").getAsJsonObject().get("video").getAsJsonArray();
-                    for (int i = 0 ; i < jsonArray.size() ; i ++)
+                    JsonObject jsonObject1 = jsonObject.get("api").getAsJsonObject().get("videos").getAsJsonObject();
+                    if (jsonObject1.get("video") instanceof JsonArray)
                     {
-                        String encodeStr = Uri.encode(jsonArray.get(i).getAsString());
-                        String subStr = jsonArray.get(i).getAsString().replaceAll(".mp4" ,"");
-                        int index = adapter.getMedia(subStr);
-                        if (index != -1)
+                        jsonArray = jsonObject1.get("video").getAsJsonArray();
+                        for (int i = 0 ; i < jsonArray.size() ; i ++)
                         {
-                            MediaModel model = adapter.getMedia(index);
-                            model.bIsPhoto = false;
-                            model.videooPathFromSD =  videoPath + jsonArray.get(i).getAsString();
-                            model.videooPathFromServer =  ParseJson.getVideoPathServer(jsonObject) + encodeStr;
-                            model.photoPathFromServer = ParseJson.getPhotoPathServer(jsonObject) + encodeStr.replaceAll(".mp4" ,".jpg");
-                            File file = new File(Constants.SD_PATH  + model.videooPathFromSD);
-                            if(!file.exists())
-                                model.isExistVideo = false;
-                            else
-                                model.isExistVideo = true;
+                            String photo = jsonArray.get(i).getAsString();
+                            getVideo(photo ,videoPath , jsonObject);
                         }
                     }
+                    else
+                    {
+                        String photo = jsonObject1.get("video").getAsString();
+                        getVideo(photo ,videoPath , jsonObject);
+                    }
+
                 }
 
                 adapter.notifyDataSetChanged();
@@ -156,6 +157,46 @@ public class MediaListActivity extends BaseActivity {
                 Log.e("error" ,e.getLocalizedMessage());
             }
         });
+    }
+
+    public void getVideo(String photo ,String videoPath ,JsonObject jsonObject)
+    {
+        if (photo.length() > 0)
+        {
+            String encodeStr = Uri.encode(photo);
+            String subStr = encodeStr.replaceAll(".mp4" ,"");
+            int index = adapter.getMedia(subStr);
+            if (index != -1)
+            {
+                MediaModel model = adapter.getMedia(index);
+                model.bIsPhoto = false;
+                model.videooPathFromSD =  videoPath + photo;
+                model.videooPathFromServer =  ParseJson.getVideoPathServer(jsonObject) + encodeStr;
+                model.photoPathFromServer = ParseJson.getPhotoPathServer(jsonObject) + encodeStr.replaceAll(".mp4" ,".jpg");
+                File file = new File(Constants.SD_PATH  + model.videooPathFromSD);
+                if(!file.exists())
+                    model.isExistVideo = false;
+                else
+                    model.isExistVideo = true;
+            }
+        }
+    }
+
+    public void getPhoto(String photo ,String photoPath ,JsonObject jsonObject)
+    {
+        if (photo.length() > 0)
+        {
+            String encodeStr = Uri.encode(photo);
+            MediaModel model = new MediaModel(photoPath + photo , true);
+            model.photoPathFromServer =  ParseJson.getPhotoPathServer(jsonObject) + encodeStr;
+            // check if exist photo file in SD card
+            File file = new File(Constants.SD_PATH  + model.photoPathFromSD);
+            if(!file.exists())
+                model.isExistPhoto = false;
+            else
+                model.isExistPhoto = true;
+            adapter.addMedia(model);
+        }
     }
 
     public void onBack(View view){

@@ -31,6 +31,9 @@ public class CleaningActivity extends BaseActivity {
     @BindView(R.id.cleaningfifth_btn)
     Button fifthBtn;
 
+    @BindView(R.id.cleaningsixth_btn)
+    Button sixthBtn;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,6 +50,8 @@ public class CleaningActivity extends BaseActivity {
         thirdBtn.setTypeface(copperplateGothicLight);
         fourthBtn.setTypeface(copperplateGothicLight);
         fifthBtn.setTypeface(copperplateGothicLight);
+        sixthBtn.setTypeface(copperplateGothicLight);
+
     }
 
     public void onBack(View view){
@@ -59,7 +64,7 @@ public class CleaningActivity extends BaseActivity {
         hideAllButtons();
         firstBtn.setBackgroundColor(ContextCompat.getColor(this, R.color.colorCleaning));
 
-        APIService.trakCategory(this ,Constants.dishwasher);
+        APIService.trakCategory(this , Constants.dishwasher);
         Intent intent = new Intent(this , MediaListActivity.class);
         intent.putExtra(Constants.MEDIA_URL, Constants.dishwasher);
         startActivity(intent);
@@ -71,7 +76,7 @@ public class CleaningActivity extends BaseActivity {
         hideAllButtons();
         secondBtn.setBackgroundColor(ContextCompat.getColor(this, R.color.colorCleaning));
 
-        APIService.trakCategory(this ,Constants.dishwashercompactor);
+        APIService.trakCategory(this , Constants.dishwashercompactor);
 
         Intent intent = new Intent(this , MediaListActivity.class);
         intent.putExtra(Constants.MEDIA_URL, Constants.dishwashercompactor);
@@ -83,7 +88,7 @@ public class CleaningActivity extends BaseActivity {
         hideAllButtons();
         thirdBtn.setBackgroundColor(ContextCompat.getColor(this, R.color.colorCleaning));
 
-        APIService.trakCategory(this ,Constants.energystardishwasher);
+        APIService.trakCategory(this , Constants.energystardishwasher);
 
         Intent intent = new Intent(this , MediaListActivity.class);
         intent.putExtra(Constants.MEDIA_URL, Constants.energystardishwasher);
@@ -95,7 +100,7 @@ public class CleaningActivity extends BaseActivity {
         hideAllButtons();
         fourthBtn.setBackgroundColor(ContextCompat.getColor(this, R.color.colorCleaning));
 
-        APIService.trakCategory(this ,Constants.undercounter);
+        APIService.trakCategory(this , Constants.undercounter);
 
         Intent intent = new Intent(this , MediaListActivity.class);
         intent.putExtra(Constants.MEDIA_URL, Constants.undercounter);
@@ -107,10 +112,22 @@ public class CleaningActivity extends BaseActivity {
         hideAllButtons();
         fifthBtn.setBackgroundColor(ContextCompat.getColor(this, R.color.colorCleaning));
 
-        APIService.trakCategory(this ,Constants.selectionguide);
+        APIService.trakCategory(this , Constants.selectionguide);
 
         Intent intent = new Intent(this , MediaListActivity.class);
         intent.putExtra(Constants.MEDIA_URL, Constants.selectionguide);
+        startActivity(intent);
+    }
+
+    public void onSixthClick(View view)
+    {
+        hideAllButtons();
+        sixthBtn.setBackgroundColor(ContextCompat.getColor(this, R.color.colorCleaning));
+
+        APIService.trakCategory(this , Constants.connectedcleaning);
+
+        Intent intent = new Intent(this , MediaListActivity.class);
+        intent.putExtra(Constants.MEDIA_URL, Constants.connectedcleaning);
         startActivity(intent);
     }
 
@@ -121,5 +138,7 @@ public class CleaningActivity extends BaseActivity {
         thirdBtn.setBackgroundColor(ContextCompat.getColor(this, R.color.transparent));
         fourthBtn.setBackgroundColor(ContextCompat.getColor(this, R.color.transparent));
         fifthBtn.setBackgroundColor(ContextCompat.getColor(this, R.color.transparent));
+        sixthBtn.setBackgroundColor(ContextCompat.getColor(this, R.color.transparent));
+
     }
 }

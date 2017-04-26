@@ -73,6 +73,15 @@
                 android:theme="@style/category_button"
                 android:onClick="onFifthClick"/>
 
+            <Button
+                android:id="@+id/cleaningsixth_btn"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/category_height"
+                android:background="@android:color/transparent"
+                android:text="@string/cleaning_btn6"
+                android:theme="@style/category_button"
+                android:onClick="onSixthClick"/>
+
         </LinearLayout>
     </ScrollView>
     </LinearLayout>

@@ -40,6 +40,9 @@ public class RefrigerationActivity extends BaseActivity {
     @BindView(R.id.refrigerationeightth_btn)
     Button eightthBtn;
 
+    @BindView(R.id.refrigerationnineth_btn)
+    Button ninethBtn;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,6 +62,8 @@ public class RefrigerationActivity extends BaseActivity {
         sixthBtn.setTypeface(copperplateGothicLight);
         seventhBtn.setTypeface(copperplateGothicLight);
         eightthBtn.setTypeface(copperplateGothicLight);
+        ninethBtn.setTypeface(copperplateGothicLight);
+
     }
 
     public void onBack(View view){
@@ -162,6 +167,18 @@ public class RefrigerationActivity extends BaseActivity {
         startActivity(intent);
     }
 
+    public void onNinethClick(View view)
+    {
+        hideAllButtons();
+        ninethBtn.setBackgroundColor(ContextCompat.getColor(this, R.color.colorRefrigeration));
+
+        APIService.trakCategory(this ,Constants.connectedrefridgeration);
+
+        Intent intent = new Intent(this , MediaListActivity.class);
+        intent.putExtra(Constants.MEDIA_URL, Constants.connectedrefridgeration);
+        startActivity(intent);
+    }
+
     private void hideAllButtons()
     {
         firstBtn.setBackgroundColor(ContextCompat.getColor(this, R.color.transparent));
@@ -172,6 +189,7 @@ public class RefrigerationActivity extends BaseActivity {
         sixthBtn.setBackgroundColor(ContextCompat.getColor(this, R.color.transparent));
         seventhBtn.setBackgroundColor(ContextCompat.getColor(this, R.color.transparent));
         eightthBtn.setBackgroundColor(ContextCompat.getColor(this, R.color.transparent));
+        ninethBtn.setBackgroundColor(ContextCompat.getColor(this, R.color.transparent));
 
     }
 }

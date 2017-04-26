@@ -8,24 +8,29 @@ public class Constants {
 
     public static final String API_DOMAIN  = "http://ec2-54-190-191-74.us-west-2.compute.amazonaws.com:8080/monogramapi-1.0-SNAPSHOT/api/";
     public static final String MEDIA_URL   = "mediaurl";
-    public static final String SD_PATH = "/mnt/extSdCard/gemonogram/";
-    //public static final String SD_PATH = "/mnt/external_sd/gemonogram/";
+    //public static final String SD_PATH = "/mnt/extSdCard/gemonogram/";
+    public static final String SD_PATH = "/mnt/external_sd/gemonogram/";
 
     // unused API
     public static final String catalogue = "catalogue";
-    public static final String cleaning = "cleaning";
-    public static final String cooking = "cooking";
     public static final String graphite = "graphite";
     public static final String main = "main";
     public static final String monogram = "monogram";
     public static final String monogramluxury = "monogramluxury";
     public static final String photogallery = "photogallery";
-    public static final String refrigeration = "refrigeration";
     public static final String videogallery = "videogallery";
     public static final String landing = "landing";
     public static final String bottomtab = "bottomtab";
+    public static final String cleaning = "cleaning";
+    public static final String cooking = "cooking";
+    public static final String refrigeration = "refrigeration";
 
     // used API
+
+    public static final String connectedcooking = "connectedcooking";
+    public static final String connectedcleaning = "connectedcleaning";
+    public static final String connectedrefridgeration = "connectedrefridgeration";
+
     public static final String builtinrefrigeration = "builtinrefrigeration";
     public static final String cooktops = "cooktops";
     public static final String dishwasher = "dishwasher";

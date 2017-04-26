@@ -14,7 +14,7 @@ public class ParseJson {
 
         String link = apiObject.get("link").getAsString();
         String bucket = apiObject.get("bucket").getAsString();
-        String name = apiObject.get("name").getAsString();
+        String name = apiObject.get("rootdirectory").getAsString();
         String photodirectory = apiObject.get("photodirectory").getAsString();
 
         return String.format("%s/%s/"  ,name ,photodirectory);
@@ -27,7 +27,7 @@ public class ParseJson {
 
         String link = apiObject.get("link").getAsString();
         String bucket = apiObject.get("bucket").getAsString();
-        String name = apiObject.get("name").getAsString();
+        String name = apiObject.get("rootdirectory").getAsString();
         String videodirectory = apiObject.get("videodirectory").getAsString();
 
         return String.format("%s/%s/"  ,name ,videodirectory);
@@ -39,7 +39,7 @@ public class ParseJson {
 
         String link = apiObject.get("link").getAsString();
         String bucket = apiObject.get("bucket").getAsString();
-        String name = apiObject.get("name").getAsString();
+        String name = apiObject.get("rootdirectory").getAsString();
         String photodirectory = apiObject.get("photodirectory").getAsString();
 
         return String.format("%s/%s/%s/%s/" ,link ,bucket ,name ,photodirectory);
@@ -52,7 +52,7 @@ public class ParseJson {
 
         String link = apiObject.get("link").getAsString();
         String bucket = apiObject.get("bucket").getAsString();
-        String name = apiObject.get("name").getAsString();
+        String name = apiObject.get("rootdirectory").getAsString();
         String videodirectory = apiObject.get("videodirectory").getAsString();
 
         return String.format("%s/%s/%s/%s/" ,link ,bucket ,name ,videodirectory);

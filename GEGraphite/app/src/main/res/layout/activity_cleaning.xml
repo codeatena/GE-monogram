@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.general.mediaplayer.gegraphite.activity.CleaningActivity">
+    tools:context="com.general.mediaplayer.gegraphite.activity..CleaningActivity">
 
     <ImageView
         android:layout_width="match_parent"
@@ -72,6 +72,15 @@
                 android:text="@string/cleaning_btn5"
                 android:theme="@style/category_button"
                 android:onClick="onFifthClick"/>
+
+            <Button
+                android:id="@+id/cleaningsixth_btn"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/category_height"
+                android:background="@android:color/transparent"
+                android:text="@string/cleaning_btn6"
+                android:theme="@style/category_button"
+                android:onClick="onSixthClick"/>
 
         </LinearLayout>
     </ScrollView>

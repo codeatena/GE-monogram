@@ -37,6 +37,8 @@ public class CookingActivity extends BaseActivity {
     @BindView(R.id.cookingseventh_btn)
     Button seventhBtn;
 
+    @BindView(R.id.cookingeighth_btn)
+    Button eighthBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +58,7 @@ public class CookingActivity extends BaseActivity {
         fifthBtn.setTypeface(copperplateGothicLight);
         sixthBtn.setTypeface(copperplateGothicLight);
         seventhBtn.setTypeface(copperplateGothicLight);
+        eighthBtn.setTypeface(copperplateGothicLight);
 
     }
 
@@ -149,6 +152,18 @@ public class CookingActivity extends BaseActivity {
         startActivity(intent);
     }
 
+    public void onEighthClick(View view)
+    {
+        hideAllButtons();
+        eighthBtn.setBackgroundColor(ContextCompat.getColor(this, R.color.colorCooking));
+
+        APIService.trakCategory(this ,Constants.connectedcooking);
+
+        Intent intent = new Intent(this , MediaListActivity.class);
+        intent.putExtra(Constants.MEDIA_URL, Constants.connectedcooking);
+        startActivity(intent);
+    }
+
     private void hideAllButtons()
     {
         firstBtn.setBackgroundColor(ContextCompat.getColor(this, R.color.transparent));
@@ -158,5 +173,7 @@ public class CookingActivity extends BaseActivity {
         fifthBtn.setBackgroundColor(ContextCompat.getColor(this, R.color.transparent));
         sixthBtn.setBackgroundColor(ContextCompat.getColor(this, R.color.transparent));
         seventhBtn.setBackgroundColor(ContextCompat.getColor(this, R.color.transparent));
+        eighthBtn.setBackgroundColor(ContextCompat.getColor(this, R.color.transparent));
+
     }
 }

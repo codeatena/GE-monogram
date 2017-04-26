@@ -31,6 +31,9 @@ public class CleaningActivity extends BaseActivity {
     @BindView(R.id.cleaningfifth_btn)
     Button fifthBtn;
 
+    @BindView(R.id.cleaningsixth_btn)
+    Button sixthBtn;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,6 +50,8 @@ public class CleaningActivity extends BaseActivity {
         thirdBtn.setTypeface(copperplateGothicLight);
         fourthBtn.setTypeface(copperplateGothicLight);
         fifthBtn.setTypeface(copperplateGothicLight);
+        sixthBtn.setTypeface(copperplateGothicLight);
+
     }
 
     public void onBack(View view){
@@ -114,6 +119,18 @@ public class CleaningActivity extends BaseActivity {
         startActivity(intent);
     }
 
+    public void onSixthClick(View view)
+    {
+        hideAllButtons();
+        sixthBtn.setBackgroundColor(ContextCompat.getColor(this, R.color.colorCleaning));
+
+        APIService.trakCategory(this ,Constants.connectedcleaning);
+
+        Intent intent = new Intent(this , MediaListActivity.class);
+        intent.putExtra(Constants.MEDIA_URL, Constants.connectedcleaning);
+        startActivity(intent);
+    }
+
     private void hideAllButtons()
     {
         firstBtn.setBackgroundColor(ContextCompat.getColor(this, R.color.transparent));
@@ -121,5 +138,7 @@ public class CleaningActivity extends BaseActivity {
         thirdBtn.setBackgroundColor(ContextCompat.getColor(this, R.color.transparent));
         fourthBtn.setBackgroundColor(ContextCompat.getColor(this, R.color.transparent));
         fifthBtn.setBackgroundColor(ContextCompat.getColor(this, R.color.transparent));
+        sixthBtn.setBackgroundColor(ContextCompat.getColor(this, R.color.transparent));
+
     }
 }

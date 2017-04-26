@@ -92,6 +92,15 @@
                     android:theme="@style/category_button"
                     android:onClick="onSeventhClick"/>
 
+                <Button
+                    android:id="@+id/cookingeighth_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/category_height"
+                    android:background="@android:color/transparent"
+                    android:text="@string/cooking_btn8"
+                    android:theme="@style/category_button"
+                    android:onClick="onEighthClick"/>
+
             </LinearLayout>
 
         </ScrollView>

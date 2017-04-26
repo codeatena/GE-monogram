@@ -99,6 +99,15 @@
                 android:theme="@style/category_button"
                 android:onClick="onEighthClick"/>
 
+            <Button
+                android:id="@+id/refrigerationnineth_btn"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/category_height"
+                android:background="@android:color/transparent"
+                android:text="@string/refrigeration_btn9"
+                android:theme="@style/category_button"
+                android:onClick="onNinethClick"/>
+
         </LinearLayout>
         </ScrollView>
     </LinearLayout>
