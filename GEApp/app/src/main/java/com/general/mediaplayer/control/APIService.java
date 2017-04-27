@@ -1,5 +1,8 @@
 package com.general.mediaplayer.control;
 
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
@@ -151,5 +154,14 @@ public class APIService {
                 .setAction("category")
                 .setLabel(category)
                 .build());
+    }
+
+    public static boolean hasInternetConnection(Context context)
+    {
+        ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
+        if (activeNetwork != null)
+            return true;
+        return false;
     }
 }

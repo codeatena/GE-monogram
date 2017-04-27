@@ -15,7 +15,6 @@ import com.general.mediaplayer.control.APICallback;
 import com.general.mediaplayer.control.APIService;
 import com.general.mediaplayer.model.Constants;
 import com.general.mediaplayer.model.MediaModel;
-import com.general.mediaplayer.model.ParseJson;
 import com.general.mediaplayer.view.RecyclerItemClickListener;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
@@ -68,7 +67,11 @@ public class MediaListActivity extends BaseActivity {
 
         String url = getIntent().getStringExtra(Constants.MEDIA_URL);
         Log.d(TAG ,url);
-        loadAPI(url);
+
+        if (APIService.hasInternetConnection(this))
+            loadAPI(url);
+        else
+            getLocal(url);
 
     }
 
@@ -79,8 +82,9 @@ public class MediaListActivity extends BaseActivity {
         super.onDestroy();
     }
 
-    private void loadAPI(String url)
+    private void loadAPI(final String url)
     {
+
         final ProgressDialog pd = new ProgressDialog(this);
         pd.setMessage("Loading ...");
         pd.show();
@@ -92,7 +96,6 @@ public class MediaListActivity extends BaseActivity {
 
                 pd.dismiss();
 
-                String photoPath = ParseJson.getPhotoPath(jsonObject);
                 JsonArray jsonArray;
                 if (jsonObject.get("api").getAsJsonObject().get("photos") instanceof JsonObject)
                 {
@@ -103,19 +106,17 @@ public class MediaListActivity extends BaseActivity {
                         for (int i = 0 ; i < jsonArray.size() ; i ++)
                         {
                             String photo = jsonArray.get(i).getAsString();
-                            getPhoto(photo ,photoPath ,jsonObject);
+                            getPhoto(photo ,url);
                         }
                     }
                     else
                     {
                         String photo = jsonObject1.get("photo").getAsString();
-                        getPhoto(photo ,photoPath ,jsonObject);
+                        getPhoto(photo ,url);
                     }
-
 
                 }
 
-                String videoPath = ParseJson.getVideoPath(jsonObject);
                 if (jsonObject.get("api").getAsJsonObject().get("videos") instanceof JsonObject)
                 {
                     JsonObject jsonObject1 = jsonObject.get("api").getAsJsonObject().get("videos").getAsJsonObject();
@@ -125,13 +126,13 @@ public class MediaListActivity extends BaseActivity {
                         for (int i = 0 ; i < jsonArray.size() ; i ++)
                         {
                             String photo = jsonArray.get(i).getAsString();
-                            getVideo(photo ,videoPath , jsonObject);
+                            getVideo(photo ,url);
                         }
                     }
                     else
                     {
                         String photo = jsonObject1.get("video").getAsString();
-                        getVideo(photo ,videoPath , jsonObject);
+                        getVideo(photo ,url);
                     }
 
                 }
@@ -159,8 +160,37 @@ public class MediaListActivity extends BaseActivity {
         });
     }
 
-    public void getVideo(String photo ,String videoPath ,JsonObject jsonObject)
+    public void getLocal(String url)
     {
+        String folder = Constants.urlfolderMap.get(url);
+        String dirPath = Constants.SD_PATH  + folder + "/photo";
+        File f = new File(dirPath);
+        if (!f.exists()) return;
+        File[] listFile = f.listFiles();
+        for (int i = 0; i < listFile.length; i++)
+        {
+            String fileName = listFile[i].getName();
+            if (fileName.substring(0 ,1).equals(".")) continue;
+            getPhoto(fileName ,url);
+        }
+
+        dirPath = Constants.SD_PATH  + folder + "/video";
+        f = new File(dirPath);
+        if (!f.exists()) return;
+        listFile = f.listFiles();
+        for (int i = 0; i < listFile.length; i++)
+        {
+            String fileName = listFile[i].getName();
+            if (fileName.substring(0 ,1).equals(".")) continue;
+            getVideo(fileName ,url);
+        }
+
+        adapter.notifyDataSetChanged();
+    }
+
+    public void getVideo(String photo ,String url)
+    {
+        String folder = Constants.urlfolderMap.get(url);
         if (photo.length() > 0)
         {
             String encodeStr = Uri.encode(photo);
@@ -170,9 +200,9 @@ public class MediaListActivity extends BaseActivity {
             {
                 MediaModel model = adapter.getMedia(index);
                 model.bIsPhoto = false;
-                model.videooPathFromSD =  videoPath + photo;
-                model.videooPathFromServer =  ParseJson.getVideoPathServer(jsonObject) + encodeStr;
-                model.photoPathFromServer = ParseJson.getPhotoPathServer(jsonObject) + encodeStr.replaceAll(".mp4" ,".jpg");
+                model.videooPathFromSD =  folder + "/video/" + photo;
+                model.videooPathFromServer =  Constants.AMAZON_FOLDER + folder + "/video/"  + encodeStr;
+                model.photoPathFromServer = Constants.AMAZON_FOLDER + folder + "/photo/" +  encodeStr.replaceAll(".mp4" ,".jpg");
                 File file = new File(Constants.SD_PATH  + model.videooPathFromSD);
                 if(!file.exists())
                     model.isExistVideo = false;
@@ -182,13 +212,14 @@ public class MediaListActivity extends BaseActivity {
         }
     }
 
-    public void getPhoto(String photo ,String photoPath ,JsonObject jsonObject)
+    public void getPhoto(String photo ,String url)
     {
+        String folder = Constants.urlfolderMap.get(url);
         if (photo.length() > 0)
         {
             String encodeStr = Uri.encode(photo);
-            MediaModel model = new MediaModel(photoPath + photo , true);
-            model.photoPathFromServer =  ParseJson.getPhotoPathServer(jsonObject) + encodeStr;
+            MediaModel model = new MediaModel(folder + "/photo/" + photo , true);
+            model.photoPathFromServer =  Constants.AMAZON_FOLDER + folder + "/photo/" + encodeStr;
             // check if exist photo file in SD card
             File file = new File(Constants.SD_PATH  + model.photoPathFromSD);
             if(!file.exists())

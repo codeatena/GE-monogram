@@ -1,36 +1,24 @@
 package com.general.mediaplayer.gegraphite.model;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Created by mac on 15/03/2017.
  */
 
 public class Constants {
 
+    public static final String AMAZON_FOLDER = "https://s3-us-west-2.amazonaws.com/gemonogram/";
     public static final String API_DOMAIN  = "http://ec2-54-190-191-74.us-west-2.compute.amazonaws.com:8080/monogramapi-1.0-SNAPSHOT/api/";
     public static final String MEDIA_URL   = "mediaurl";
     //public static final String SD_PATH = "/mnt/extSdCard/gemonogram/";
     public static final String SD_PATH = "/mnt/external_sd/gemonogram/";
 
-    // unused API
-    public static final String catalogue = "catalogue";
-    public static final String graphite = "graphite";
-    public static final String main = "main";
-    public static final String monogram = "monogram";
-    public static final String monogramluxury = "monogramluxury";
-    public static final String photogallery = "photogallery";
-    public static final String videogallery = "videogallery";
-    public static final String landing = "landing";
-    public static final String bottomtab = "bottomtab";
-    public static final String cleaning = "cleaning";
-    public static final String cooking = "cooking";
-    public static final String refrigeration = "refrigeration";
-
     // used API
-
     public static final String connectedcooking = "connectedcooking";
     public static final String connectedcleaning = "connectedcleaning";
     public static final String connectedrefridgeration = "connectedrefridgeration";
-
     public static final String builtinrefrigeration = "builtinrefrigeration";
     public static final String cooktops = "cooktops";
     public static final String dishwasher = "dishwasher";
@@ -52,4 +40,34 @@ public class Constants {
     public static final String selectionguide = "selection_guide";
     public static final String undercounter = "undercounter";
     public static final String sidebyside = "sidebyside";
+    public static final String graphite = "graphite";
+
+    public static final Map<String, String> urlfolderMap = new HashMap<String, String>() {{
+        put(connectedcooking, "connected_cooking");
+        put(connectedcleaning, "connected_cleaning");
+        put(connectedrefridgeration, "connected_refridgeration");
+        put(builtinrefrigeration, "builtinrefrigeration");
+        put(cooktops, "cooktops");
+        put(dishwasher, "dishwasher");
+        put(dishwashercompactor, "dishwashercompactor");
+        put(energystardishwasher, "energystardishwasher");
+        put(experiencemonogram, "experiencemonogram");
+        put(freestanding, "freestanding");
+        put(fullsizerefrigeration, "fullsizerefrigeration");
+        put(inspiredkitchen, "inspiredkitchen");
+        put(professionalranges, "professionalranges");
+        put(sweetreward, "sweetreward");
+        put(wallovens, "wallovens");
+        put(pizzaoven, "pizzaoven");
+        put(advantium, "advantium");
+        put(bottomfreezer, "bottomfreezer");
+        put(frenchdoor, "frenchdoor");
+        put(hoods, "hoods");
+        put(integratedrefrigeration, "integrated_refrigeration");
+        put(selectionguide, "selection_guide");
+        put(undercounter, "undercounter");
+        put(sidebyside, "sidebyside");
+        put(graphite, "graphite");
+
+    }};
 }
