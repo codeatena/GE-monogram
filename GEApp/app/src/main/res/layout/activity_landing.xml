@@ -25,7 +25,8 @@
                 android:background="@null"
                 android:onClick="onRefrigeration"
                 android:scaleType="fitXY"
-                android:src="@drawable/refridgeration" />
+                android:src="@drawable/refridgeration"
+                android:contentDescription="" />
 
             <ImageButton
                 android:id="@+id/cooking_btn"
