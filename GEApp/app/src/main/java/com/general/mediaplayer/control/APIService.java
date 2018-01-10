@@ -80,6 +80,7 @@ public class APIService {
                     @Override
                     public void onError(Throwable e) {
                         // cast to retrofit.HttpException to get the response code
+                        Log.e("error" ,e.getLocalizedMessage());
                         callback.doError(e);
                     }
 
