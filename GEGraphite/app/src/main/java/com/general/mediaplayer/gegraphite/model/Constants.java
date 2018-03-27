@@ -10,11 +10,9 @@ import java.util.Map;
 public class Constants {
 
     public static final String AMAZON_FOLDER = "https://s3-us-west-2.amazonaws.com/gemonogram/";
-    public static final String API_DOMAIN  = "http://ec2-54-214-234-188.us-west-2.compute.amazonaws.com:8080/monogramapi-1.0-SNAPSHOT/api/";
+    public static final String API_DOMAIN  = "http://54.214.234.188:8080/monogramapi-1.0-SNAPSHOT/api/";
     public static final String MEDIA_URL   = "mediaurl";
-    //public static final String SD_PATH = "/mnt/extSdCard/gemonogram/";
-    //public static final String SD_PATH = "/mnt/external_sd/gemonogram/";
-    public static final String SD_PATH = "/storage/external_storage/sdcard1/gemonogram/";
+//    public static final String SD_PATH = "/mnt/external_sd/gemonogram/";
 
     // used API
     public static final String connectedcooking = "connectedcooking";

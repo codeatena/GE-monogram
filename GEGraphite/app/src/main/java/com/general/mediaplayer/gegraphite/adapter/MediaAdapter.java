@@ -10,8 +10,8 @@ import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 
 import com.general.mediaplayer.gegraphite.R;
-import com.general.mediaplayer.gegraphite.model.Constants;
 import com.general.mediaplayer.gegraphite.model.MediaModel;
+import com.general.mediaplayer.gegraphite.model.StorageUtil;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
@@ -49,7 +49,7 @@ public class MediaAdapter extends RecyclerView.Adapter{
 
         final MyViewHolder vh = (MyViewHolder) viewHolder;
         final MediaModel item = imageModels.get(position);
-        String path = Constants.SD_PATH + item.photoPathFromSD;
+        String path = StorageUtil.getStorageDirectory(mContext) + item.photoPathFromSD;
         File file = new File(path);
         if(file.exists())
         {

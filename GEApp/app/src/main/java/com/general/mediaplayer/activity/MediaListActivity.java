@@ -15,6 +15,7 @@ import com.general.mediaplayer.control.APICallback;
 import com.general.mediaplayer.control.APIService;
 import com.general.mediaplayer.model.Constants;
 import com.general.mediaplayer.model.MediaModel;
+import com.general.mediaplayer.model.StorageUtil;
 import com.general.mediaplayer.view.RecyclerItemClickListener;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
@@ -163,26 +164,31 @@ public class MediaListActivity extends BaseActivity {
     public void getLocal(String url)
     {
         String folder = Constants.urlfolderMap.get(url);
-        String dirPath = Constants.SD_PATH  + folder + "/photo";
+        Log.d(TAG ,StorageUtil.getStorageDirectory(this));
+        String dirPath = StorageUtil.getStorageDirectory(this)  + folder + "/photo";
         File f = new File(dirPath);
         if (!f.exists()) return;
         File[] listFile = f.listFiles();
-        for (int i = 0; i < listFile.length; i++)
-        {
-            String fileName = listFile[i].getName();
-            if (fileName.substring(0 ,1).equals(".")) continue;
-            getPhoto(fileName ,url);
+        if (listFile != null) {
+            for (int i = 0; i < listFile.length; i++)
+            {
+                String fileName = listFile[i].getName();
+                if (fileName.substring(0 ,1).equals(".")) continue;
+                getPhoto(fileName ,url);
+            }
         }
 
-        dirPath = Constants.SD_PATH  + folder + "/video";
+        dirPath = StorageUtil.getStorageDirectory(this)  + folder + "/video";
         f = new File(dirPath);
         if (!f.exists()) return;
         listFile = f.listFiles();
-        for (int i = 0; i < listFile.length; i++)
-        {
-            String fileName = listFile[i].getName();
-            if (fileName.substring(0 ,1).equals(".")) continue;
-            getVideo(fileName ,url);
+        if (listFile != null) {
+            for (int i = 0; i < listFile.length; i++)
+            {
+                String fileName = listFile[i].getName();
+                if (fileName.substring(0 ,1).equals(".")) continue;
+                getVideo(fileName ,url);
+            }
         }
 
         adapter.notifyDataSetChanged();
@@ -203,7 +209,7 @@ public class MediaListActivity extends BaseActivity {
                 model.videooPathFromSD =  folder + "/video/" + photo;
                 model.videooPathFromServer =  Constants.AMAZON_FOLDER + folder + "/video/"  + encodeStr;
                 model.photoPathFromServer = Constants.AMAZON_FOLDER + folder + "/photo/" +  encodeStr.replaceAll(".mp4" ,".jpg");
-                File file = new File(Constants.SD_PATH  + model.videooPathFromSD);
+                File file = new File(StorageUtil.getStorageDirectory(this)  + model.videooPathFromSD);
                 if(!file.exists())
                     model.isExistVideo = false;
                 else
@@ -221,7 +227,7 @@ public class MediaListActivity extends BaseActivity {
             MediaModel model = new MediaModel(folder + "/photo/" + photo , true);
             model.photoPathFromServer =  Constants.AMAZON_FOLDER + folder + "/photo/" + encodeStr;
             // check if exist photo file in SD card
-            File file = new File(Constants.SD_PATH  + model.photoPathFromSD);
+            File file = new File(StorageUtil.getStorageDirectory(this)  + model.photoPathFromSD);
             if(!file.exists())
                 model.isExistPhoto = false;
             else

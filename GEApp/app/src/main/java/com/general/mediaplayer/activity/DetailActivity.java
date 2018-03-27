@@ -13,6 +13,7 @@ import com.general.mediaplayer.GEApplication;
 import com.general.mediaplayer.R;
 import com.general.mediaplayer.model.Constants;
 import com.general.mediaplayer.model.MediaModel;
+import com.general.mediaplayer.model.StorageUtil;
 import com.github.chrisbanes.photoview.PhotoView;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
@@ -46,7 +47,7 @@ public class DetailActivity extends BaseActivity {
 
             if (model.isExistPhoto)
             {
-                String path =  Constants.SD_PATH  + model.photoPathFromSD;
+                String path =  StorageUtil.getStorageDirectory(this)  + model.photoPathFromSD;
                 Picasso.with(this)
                         .load(new File(path))
                         .resize(1000, 1000)
@@ -98,7 +99,7 @@ public class DetailActivity extends BaseActivity {
             if (model.isExistVideo)
             {
                 // from sd card
-                String path =  "file:///" + Constants.SD_PATH + model.videooPathFromSD;
+                String path =  "file:///" + StorageUtil.getStorageDirectory(this) + model.videooPathFromSD;
                 videoView.setVideoPath(path);
             }
             else
